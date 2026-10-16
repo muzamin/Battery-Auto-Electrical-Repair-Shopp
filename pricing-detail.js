@@ -105,7 +105,7 @@ const PRICING_PACKAGES_DATA = {
     category: 'Installation & Coding',
     badge: 'Most Popular Choice &bull; OEM Dealer-Grade',
     title: 'OEM Battery Replacement &amp; BMS Registration',
-    image: 'assets/images/battery_testing.jpg',
+    image: 'assets/images/battery_charging.jpg',
     paratext: 'Precision AGM/EFB battery fitting with uninterrupted OBD2 memory protection, terminal de-oxidation, and computerized Battery Management System (BMS) digital adaptation to prevent premature cell failure.',
     priceVal: '$139',
     pricePrefix: 'Labor starting from',

@@ -734,7 +734,137 @@
   background-color: var(--hero-card-border);
 }
 
-/* Right Visual: Image Alignment 2 (Exact Home 1 Dual Overlapping Structure) */
+/* Right Visual: Single Luxury Showcase Image Card */
+.detail-hero-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+[dir="rtl"] .detail-hero-showcase {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.detail-showcase-card {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--hero-card-border);
+  background-color: var(--hero-card-bg);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+[data-theme="light"] .detail-showcase-card {
+  box-shadow: 0 22px 50px -12px rgba(23, 35, 29, 0.16), 0 0 0 1px rgba(23, 35, 29, 0.08);
+  border-color: rgba(200, 164, 93, 0.35);
+}
+
+.detail-showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 164, 93, 0.65);
+  box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.65), 0 0 30px rgba(200, 164, 93, 0.2);
+}
+
+[data-theme="light"] .detail-showcase-card:hover {
+  box-shadow: 0 28px 60px -12px rgba(23, 35, 29, 0.22), 0 0 24px rgba(200, 164, 93, 0.25);
+}
+
+.detail-showcase-card .showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-showcase-card:hover .showcase-img {
+  transform: scale(1.04);
+}
+
+.detail-showcase-card .showcase-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 35, 29, 0.12) 0%, transparent 40%, rgba(23, 35, 29, 0.72) 100%);
+  pointer-events: none;
+}
+
+[data-theme="light"] .detail-showcase-card .showcase-gradient-overlay {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 45%, rgba(23, 35, 29, 0.42) 100%);
+}
+
+.detail-showcase-card .showcase-pill {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(23, 35, 29, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 164, 93, 0.38);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #F5F3EC;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+[data-theme="light"] .detail-showcase-card .showcase-pill {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(200, 164, 93, 0.45);
+  color: #17231D;
+  box-shadow: 0 4px 14px rgba(23, 35, 29, 0.1);
+}
+
+.detail-showcase-card .showcase-pill-top {
+  top: 18px;
+  left: 18px;
+}
+
+[dir="rtl"] .detail-showcase-card .showcase-pill-top {
+  left: auto;
+  right: 18px;
+}
+
+.detail-showcase-card .showcase-pill-bottom {
+  bottom: 18px;
+  right: 18px;
+}
+
+[dir="rtl"] .detail-showcase-card .showcase-pill-bottom {
+  right: auto;
+  left: 18px;
+}
+
+.detail-showcase-card .showcase-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success);
+}
+
+.detail-showcase-card .showcase-pulse-dot.gold {
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 8px var(--color-secondary);
+}
+
+/* Fallback & Legacy Dual Alignment Classes */
 .detail-hero-image-alignment-2 {
   position: relative;
   width: 100%;
@@ -752,202 +882,17 @@
   border: 1px solid var(--hero-card-border);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-[data-theme="light"] .detail-hero-image-wrapper {
-  box-shadow: 0 20px 45px -10px rgba(23, 35, 29, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.7);
-}
-
-.detail-hero-image-wrapper:hover {
-  transform: translateY(-4px);
-}
-
-/* Primary Top/Main Image Card */
 .detail-hero-image-wrapper.primary-image-card {
-  width: 84%;
-  height: 280px;
-  top: 0;
-  right: 0;
-  z-index: 1;
-}
-
-[dir="rtl"] .detail-hero-image-wrapper.primary-image-card {
-  right: auto;
-  left: 0;
-}
-
-/* Secondary Lower Offset Image Card */
-.detail-hero-image-wrapper.secondary-image-card {
-  width: 62%;
-  height: 200px;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  border: 4px solid var(--hero-card-bg);
-}
-
-[dir="rtl"] .detail-hero-image-wrapper.secondary-image-card {
-  left: auto;
-  right: 0;
-}
-
-.detail-hero-image-alignment-2 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  position: relative;
 }
 
-.detail-hero-image-alignment-2 .image-gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(23, 35, 29, 0.65) 100%);
-  pointer-events: none;
-}
-
-[data-theme="light"] .detail-hero-image-alignment-2 .image-gradient-overlay {
-  background: linear-gradient(180deg, transparent 55%, rgba(23, 35, 29, 0.4) 100%);
-}
-
-/* Floating Status Pills on image cards */
-.detail-hero-image-alignment-2 .card-status-pill {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(23, 35, 29, 0.78);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(200, 164, 93, 0.35);
-  border-radius: var(--radius-full);
-  padding: 4px 12px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: #F5F3EC;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  z-index: 3;
-}
-
-[dir="rtl"] .detail-hero-image-alignment-2 .card-status-pill {
-  left: auto;
-  right: 14px;
-}
-
-[data-theme="light"] .detail-hero-image-alignment-2 .card-status-pill {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(200, 164, 93, 0.4);
-  color: #17231D;
-  box-shadow: 0 4px 12px rgba(23, 35, 29, 0.08);
-}
-
-.detail-hero-image-alignment-2 .card-status-pill.bottom-pill {
-  top: auto;
-  bottom: 12px;
-  left: 12px;
-}
-
-[dir="rtl"] .detail-hero-image-alignment-2 .card-status-pill.bottom-pill {
-  left: auto;
-  right: 12px;
-}
-
-.detail-hero-image-alignment-2 .status-pulse-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-success);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--color-success);
-}
-
-.detail-hero-image-alignment-2 .status-pulse-dot.gold {
-  background-color: var(--color-secondary);
-  box-shadow: 0 0 8px var(--color-secondary);
-}
-
-/* Floating Real-time Diagnostic Telemetry HUD Card */
+.detail-hero-image-wrapper.secondary-image-card,
 .detail-telemetry-hud-card {
-  position: absolute;
-  bottom: 10px;
-  right: -8px;
-  background-color: var(--hero-card-bg);
-  border: 1px solid var(--hero-card-border);
-  border-radius: var(--radius-lg);
-  padding: 13px 18px;
-  box-shadow: var(--shadow-card);
-  z-index: 4;
-  min-width: 250px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-[dir="rtl"] .detail-telemetry-hud-card {
-  right: auto;
-  left: -8px;
-}
-
-.detail-telemetry-hud-card .telemetry-top-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 9px;
-  padding-bottom: 7px;
-  border-bottom: 1px solid var(--hero-card-border);
-}
-
-.detail-telemetry-hud-card .telemetry-status-light {
-  width: 7px;
-  height: 7px;
-  background-color: var(--color-success);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--color-success);
-}
-
-.detail-telemetry-hud-card .telemetry-bus-label {
-  font-size: 0.725rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-main);
-  flex-grow: 1;
-}
-
-.detail-telemetry-hud-card .telemetry-status-val {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--color-secondary);
-}
-
-[data-theme="light"] .detail-telemetry-hud-card .telemetry-status-val {
-  color: #7A5514;
-}
-
-.detail-telemetry-hud-card .telemetry-metrics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.detail-telemetry-hud-card .metric-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.725rem;
-}
-
-.detail-telemetry-hud-card .metric-key {
-  color: var(--text-muted);
-}
-
-[data-theme="light"] .detail-telemetry-hud-card .metric-key {
-  color: #4A5B4F;
-}
-
-.detail-telemetry-hud-card .metric-val {
-  font-family: var(--font-display);
-  font-weight: 700;
+  display: none !important;
 }
 
 
@@ -3620,10 +3565,15 @@
     gap: 40px;
   }
 
+  .detail-hero-showcase,
   .detail-hero-image-alignment-2 {
-    height: 400px;
-    max-width: 560px;
-    margin: 10px auto 0;
+    height: auto;
+    max-width: 540px;
+    margin: 16px auto 0;
+  }
+
+  .detail-showcase-card {
+    height: 340px;
   }
 
   .protocol-steps-grid {
@@ -3676,31 +3626,24 @@
     font-size: clamp(1.75rem, 5.8vw, 2.2rem);
   }
 
+  .detail-hero-showcase,
   .detail-hero-image-alignment-2 {
-    height: 330px;
     max-width: 100%;
+    margin: 14px 0 0;
+  }
+
+  .detail-showcase-card {
+    height: 280px;
   }
 
   .detail-hero-image-wrapper.primary-image-card {
     height: 230px;
-    width: 88%;
+    width: 100%;
   }
 
-  .detail-hero-image-wrapper.secondary-image-card {
-    height: 165px;
-    width: 66%;
-  }
-
+  .detail-hero-image-wrapper.secondary-image-card,
   .detail-telemetry-hud-card {
-    min-width: 220px;
-    bottom: -6px;
-    right: 0;
-    padding: 10px 14px;
-  }
-
-  [dir="rtl"] .detail-telemetry-hud-card {
-    right: auto;
-    left: 0;
+    display: none !important;
   }
 
   .detail-hero-metrics-grid {
@@ -3818,70 +3761,53 @@
     font-size: 0.72rem;
   }
 
-  /* 1. HERO VISUAL & TELEMETRY HUD REFINEMENTS */
+  /* 1. HERO VISUAL REFINEMENTS */
+  .detail-hero-showcase,
   .detail-hero-image-alignment-2 {
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    margin: 12px 0 0 !important;
     max-width: 100% !important;
-    position: static !important;
+    margin: 12px 0 0 !important;
+  }
+
+  .detail-showcase-card {
+    height: 220px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .detail-showcase-card .showcase-pill {
+    padding: 5px 11px !important;
+    font-size: 0.65rem !important;
+  }
+
+  .detail-showcase-card .showcase-pill-top {
+    top: 12px !important;
+    left: 12px !important;
+  }
+
+  [dir="rtl"] .detail-showcase-card .showcase-pill-top {
+    left: auto !important;
+    right: 12px !important;
+  }
+
+  .detail-showcase-card .showcase-pill-bottom {
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+
+  [dir="rtl"] .detail-showcase-card .showcase-pill-bottom {
+    right: auto !important;
+    left: 12px !important;
   }
 
   .detail-hero-image-wrapper.primary-image-card {
     position: relative !important;
     width: 100% !important;
     height: 195px !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    border-radius: var(--radius-lg);
-  }
-
-  .detail-hero-image-wrapper.secondary-image-card {
-    display: none !important;
-  }
-
-  .detail-telemetry-hud-card {
-    position: relative !important;
-    bottom: auto !important;
-    right: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 12px 14px !important;
-    margin-top: 4px !important;
     border-radius: var(--radius-lg) !important;
   }
 
-  [dir="rtl"] .detail-telemetry-hud-card {
-    right: auto !important;
-    left: auto !important;
-  }
-
-  .detail-telemetry-hud-card .telemetry-top-row {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .detail-telemetry-hud-card .metric-row {
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: space-between;
-    font-size: 0.72rem;
-  }
-
-  .detail-telemetry-hud-card .metric-key {
-    font-size: 0.72rem;
-  }
-
-  .detail-telemetry-hud-card .metric-val {
-    font-size: 0.72rem;
-    text-align: right;
-    word-break: break-word;
+  .detail-hero-image-wrapper.secondary-image-card,
+  .detail-telemetry-hud-card {
+    display: none !important;
   }
 
   /* 2. TECHNICAL ARCHITECTURE & DIVIDER PILL */

@@ -1015,18 +1015,6 @@ function renderServiceDetail(serviceId) {
     </div>
   `).join('');
 
-  // Helper function for secondary layered image (Exact Home 1 Image Alignment 2 Reference)
-  function getSecondaryImageForService(id) {
-    const secondaryMap = {
-      1: 'assets/images/electrical_diagnostics.jpg',
-      2: 'assets/images/battery_testing.jpg',
-      3: 'assets/images/alternator_repair.jpg',
-      4: 'assets/images/wiring_repair.jpg',
-      5: 'assets/images/about_vision_ev.jpg',
-      6: 'assets/images/jump_start.jpg'
-    };
-    return secondaryMap[id] || 'assets/images/electrical_diagnostics.jpg';
-  }
 
   // Helper function for luxury headline gradient highlight matching Home 1
   function formatHeadlineHighlight(title) {
@@ -1100,52 +1088,23 @@ function renderServiceDetail(serviceId) {
           </div>
         </div>
 
-        <!-- Right: Image Alignment 2 (Two layered premium automotive images + telemetry badge) -->
-        <div class="detail-hero-image-alignment-2">
-          <!-- Primary Main Image Card -->
-          <div class="detail-hero-image-wrapper primary-image-card">
+        <!-- Right: Single Luxury Showcase Image Card -->
+        <div class="detail-hero-showcase">
+          <div class="detail-showcase-card">
             <img 
               src="${service.image}" 
               alt="${service.title}" 
-              class="hero-img img-main"
+              class="showcase-img"
               loading="eager"
             >
-            <div class="image-gradient-overlay"></div>
-            <div class="card-status-pill">
-              <span class="status-pulse-dot"></span>
+            <div class="showcase-gradient-overlay"></div>
+            <div class="showcase-pill showcase-pill-top">
+              <span class="showcase-pulse-dot"></span>
               <span>${service.category}</span>
             </div>
-          </div>
-
-          <!-- Secondary Offset Image Card -->
-          <div class="detail-hero-image-wrapper secondary-image-card">
-            <img 
-              src="${getSecondaryImageForService(service.id)}" 
-              alt="${service.shortName} Laboratory Bench" 
-              class="hero-img img-secondary"
-              loading="eager"
-            >
-            <div class="image-gradient-overlay"></div>
-            <div class="card-status-pill bottom-pill">
-              <span class="status-pulse-dot gold"></span>
+            <div class="showcase-pill showcase-pill-bottom">
+              <span class="showcase-pulse-dot gold"></span>
               <span>${service.quickSpecs.lab}</span>
-            </div>
-          </div>
-
-          <!-- Overlapping Precision Telemetry HUD Card -->
-          <div class="detail-telemetry-hud-card">
-            <div class="telemetry-top-row">
-              <span class="telemetry-status-light"></span>
-              <span class="telemetry-bus-label">${service.telemetry.title}</span>
-              <span class="telemetry-status-val">${service.telemetry.tag}</span>
-            </div>
-            <div class="telemetry-metrics-list">
-              ${service.telemetry.stats.map(s => `
-                <div class="metric-row">
-                  <span class="metric-key">${s.label}</span>
-                  <span class="metric-val highlight-gold">${s.val}</span>
-                </div>
-              `).join('')}
             </div>
           </div>
         </div>

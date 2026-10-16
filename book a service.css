@@ -129,33 +129,41 @@
 }
 
 .brand-crest-anchor:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .brand-crest-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: rgba(var(--color-secondary-rgb, 200, 164, 93), 0.12);
-  border: 1px solid rgba(var(--color-secondary-rgb, 200, 164, 93), 0.45);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 164, 93, 0.18) 0%, rgba(200, 164, 93, 0.05) 52%, transparent 75%);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: all var(--transition-normal, 0.25s ease);
+  padding: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .brand-crest-anchor:hover .brand-crest-box {
-  transform: scale(1.05);
-  border-color: var(--color-secondary, #C8A45D);
-  box-shadow: 0 6px 22px rgba(var(--color-secondary-rgb, 200, 164, 93), 0.38);
+  background: radial-gradient(circle, rgba(200, 164, 93, 0.32) 0%, rgba(200, 164, 93, 0.08) 58%, transparent 80%);
 }
 
 .brand-crest-img {
-  width: 100%;
-  height: 100%;
+  width: 52px;
+  height: 52px;
+  max-width: 52px;
+  max-height: 52px;
   object-fit: contain;
+  display: block;
+  filter: contrast(1.08) brightness(1.06);
+  transition: filter 0.25s ease;
+}
+
+.brand-crest-anchor:hover .brand-crest-img {
+  filter: contrast(1.14) brightness(1.14);
 }
 
 .brand-titles {
@@ -883,9 +891,12 @@
     font-size: 0.66rem;
   }
 
-  .brand-crest-box {
-    width: 42px;
-    height: 42px;
+  .brand-crest-box,
+  .brand-crest-img {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    max-height: 48px;
   }
 
   .card-toggle-btn {

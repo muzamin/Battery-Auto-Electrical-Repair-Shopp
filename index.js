@@ -557,40 +557,20 @@ function initServiceAndPlanButtons() {
   }
 
   if (headerBookBtn) {
-    headerBookBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof window.openClientBookingModal === 'function') {
-        window.openClientBookingModal();
-      } else {
-        const bookingModal = document.getElementById('booking-service-modal');
-        if (bookingModal) {
-          bookingModal.classList.add('active');
-          bookingModal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-        }
-      }
+    headerBookBtn.addEventListener('click', () => {
+      window.location.href = 'book-service.html';
     });
   }
 
   if (heroBookBtn) {
-    heroBookBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof window.openClientBookingModal === 'function') {
-        window.openClientBookingModal('Diagnostics');
-      } else {
-        scrollToEnquiry('diagnostics', 'Hero CTA: Requesting priority computerized diagnostic scan.');
-      }
+    heroBookBtn.addEventListener('click', () => {
+      window.location.href = 'book-service.html?service=diagnostics';
     });
   }
 
   if (ctaBookBtn) {
-    ctaBookBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof window.openClientBookingModal === 'function') {
-        window.openClientBookingModal('Battery');
-      } else {
-        scrollToEnquiry('battery', 'Emergency / Express Bay Reservation requested via CTA banner.');
-      }
+    ctaBookBtn.addEventListener('click', () => {
+      window.location.href = 'book-service.html?service=battery';
     });
   }
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="dark">
 
 <head>
@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="index.css">
   <script>
     // GitHub Pages trailing slash resolution to prevent broken relative asset paths
-    if (window.location.hostname.endsWith('github.io') && !window.location.pathname.endsWith('/') && !window.location.pathname.split('/').pop().includes('.')) &bull; window.location.replace(window.location.pathname + '/' + window.location.search &bull; window.location.hash);
-    }
+    if (window.location.hostname.endsWith('github.io') && !window.location.pathname.endsWith('/') && !window.location.pathname.split('/').pop().includes('.')) & bull; window.location.replace(window.location.pathname + '/' + window.location.search & bull; window.location.hash);
   </script>
 </head>
 
@@ -74,8 +73,7 @@
             <a href="contact.html" class="nav-link" id="nav-contact">Contact Us</a>
           </li>
           <li class="nav-item nav-item-cta">
-            <a href="#booking-service-modal" class="btn btn-primary nav-menu-book-btn" id="nav-mobile-book-btn"
-              data-open-booking="true">
+            <a href="book-service.html" class="btn btn-primary nav-menu-book-btn" id="nav-mobile-book-btn">
               <span>Book a Service</span>
             </a>
           </li>
@@ -110,8 +108,7 @@
         </button>
 
         <!-- Primary CTA: Book a Service -->
-        <a href="#booking-service-modal" class="btn btn-primary header-cta-btn" id="header-book-btn"
-          data-open-booking="true" aria-haspopup="dialog" aria-expanded="false">
+        <a href="book-service.html" class="btn btn-primary header-cta-btn" id="header-book-btn">
           <span>Book a Service</span>
         </a>
 
@@ -561,8 +558,8 @@
                 <a href="service-detail.html?id=1" class="btn btn-secondary service-detail-btn">
                   <span>View Tech Spec</span>
                 </a>
-                <button class="btn btn-primary service-enquire-btn" data-service="Computer Diagnostics &bull; ECU Repair"
-                  data-open-booking="true">
+                <button class="btn btn-primary service-enquire-btn"
+                  data-service="Computer Diagnostics &bull; ECU Repair" data-open-booking="true">
                   <span>Book Bay</span>
                 </button>
               </div>
@@ -705,8 +702,8 @@
                 <a href="service-detail.html?id=3" class="btn btn-secondary service-detail-btn">
                   <span>View Tech Spec</span>
                 </a>
-                <button class="btn btn-primary service-enquire-btn" data-service="Alternator &bull; Starter Motor Rebuild"
-                  data-open-booking="true">
+                <button class="btn btn-primary service-enquire-btn"
+                  data-service="Alternator &bull; Starter Motor Rebuild" data-open-booking="true">
                   <span>Book Bay</span>
                 </button>
               </div>
@@ -928,7 +925,8 @@
               <li>12-Month Roadside Assistance cover</li>
             </ul>
             <div class="plan-action">
-              <button class="btn btn-primary full-width book-plan-btn" data-plan="Complete Battery &bull; Charging - $149">
+              <button class="btn btn-primary full-width book-plan-btn"
+                data-plan="Complete Battery &bull; Charging - $149">
                 <span>Select Plan</span>
               </button>
             </div>
@@ -1963,16 +1961,20 @@
                       <option value="Battery Replacement ($129)" selected>&#128267; High-Performance Battery Replacement
                         &amp;
                         AGM Coding ($129)</option>
-                      <option value="Computer Diagnostics ($89)">&#9889; Master Computer Diagnostics &amp; ECU Fault Scan
+                      <option value="Computer Diagnostics ($89)">&#9889; Master Computer Diagnostics &amp; ECU Fault
+                        Scan
                         ($89)</option>
-                      <option value="Alternator &amp; Starter ($149)">&#9881;&#65039; Alternator &amp; Starter Motor Testing /
+                      <option value="Alternator &amp; Starter ($149)">&#9881;&#65039; Alternator &amp; Starter Motor
+                        Testing /
                         Overhaul ($149)</option>
-                      <option value="Parasitic Drain Repair ($119)">&#128268; Parasitic Battery Drain &amp; Complex Wiring
+                      <option value="Parasitic Drain Repair ($119)">&#128268; Parasitic Battery Drain &amp; Complex
+                        Wiring
                         Loom
                         Repair ($119)</option>
                       <option value="EV High-Voltage Isolation ($199)">&#9889; Hybrid / EV High-Voltage Isolation &amp;
                         Battery Health ($199)</option>
-                      <option value="Climate Control &amp; AC ($109)">&#10052;&#65039; Auto Electrical AC &amp; Sensor Calibration
+                      <option value="Climate Control &amp; AC ($109)">&#10052;&#65039; Auto Electrical AC &amp; Sensor
+                        Calibration
                         ($109)</option>
                       <option value="Rapid Jump Rescue ($79)">&#128680; Rapid Mobile Roadside Jump-Start &amp; Battery
                         Dispatch
@@ -2015,9 +2017,11 @@
                     <div class="booking-select-wrap">
                       <select id="client-time-slot" name="client_time_slot" class="custom-select booking-select"
                         required>
-                        <option value="Morning Slot (08:30 AM &bull; 11:30 AM)" selected>Morning (08:30 AM &bull; 11:30 AM)
+                        <option value="Morning Slot (08:30 AM &bull; 11:30 AM)" selected>Morning (08:30 AM &bull; 11:30
+                          AM)
                         </option>
-                        <option value="Midday Slot (11:30 AM &bull; 02:30 PM)">Midday (11:30 AM &bull; 02:30 PM)</option>
+                        <option value="Midday Slot (11:30 AM &bull; 02:30 PM)">Midday (11:30 AM &bull; 02:30 PM)
+                        </option>
                         <option value="Afternoon Slot (02:30 PM &bull; 05:30 PM)">Afternoon (02:30 PM &bull; 05:30 PM)
                         </option>
                         <option value="Express Priority Immediate Bay">Express Immediate Bay (Priority)</option>
@@ -2069,7 +2073,8 @@
                       stroke-linejoin="round" />
                   </svg>
                 </button>
-                <p class="booking-privacy-note">&#128274; SSL-Encrypted Client Reservation &bull; Instant SMS &amp; Calendar
+                <p class="booking-privacy-note">&#128274; SSL-Encrypted Client Reservation &bull; Instant SMS &amp;
+                  Calendar
                   Confirmation</p>
               </div>
             </form>
@@ -2140,7 +2145,8 @@
         </div>
 
         <div class="confirmation-notes">
-          <p>&#128242; An instant confirmation SMS and telemetry token have been sent to <span id="confirm-phone-display">+1
+          <p>&#128242; An instant confirmation SMS and telemetry token have been sent to <span
+              id="confirm-phone-display">+1
               (555) 000-0000</span> and <span id="confirm-email-display">client@example.com</span>.</p>
         </div>
 

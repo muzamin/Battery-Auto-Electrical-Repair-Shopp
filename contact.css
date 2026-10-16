@@ -687,7 +687,20 @@ html, body {
 }
 
 .triage-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.1rem;
+  color: #FFFFFF;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.triage-btn:hover .triage-btn-icon {
+  color: #C8A45D;
+}
+
+.triage-btn.active .triage-btn-icon {
+  color: #C8A45D;
 }
 
 .triage-btn-label {
@@ -1010,6 +1023,18 @@ html, body {
   background: #F6F3EA;
   border-color: #C8A45D;
   box-shadow: 0 0 16px rgba(200, 164, 93, 0.25);
+}
+
+[data-theme="light"] .triage-btn-icon {
+  color: #17231D;
+}
+
+[data-theme="light"] .triage-btn:hover .triage-btn-icon {
+  color: #8E6D2B;
+}
+
+[data-theme="light"] .triage-btn.active .triage-btn-icon {
+  color: #8E6D2B;
 }
 
 [data-theme="light"] .triage-btn-label {

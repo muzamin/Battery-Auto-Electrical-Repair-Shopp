@@ -1,39 +1,46 @@
 ﻿/**
- * VoltEdge Auto Electrical Repair Shop &bull; Premium Client Booking Modal &bull; Service Allocation Engine &bull; Features:
+ * VoltEdge Auto Electrical Repair Shop
+ * Premium Client Booking Modal & Service Allocation Engine
+ * Features:
  * - Instant Header CTA "Book a Service" Interactive Trigger
- * - Easy Booking for Client (Battery &bull; Auto Electrical Repair Shop)
- * - Dynamic Date Constraint (Min date &bull; Today)
+ * - Easy Booking for Client (Battery & Auto Electrical Repair Shop)
+ * - Dynamic Date Constraint (Min date = Today)
  * - Robust Client Validation with Inline Feedback
- * - Real-time Bay Allocation Simulation &bull; Confirmation Receipt Ticket
+ * - Real-time Bay Allocation Simulation & Confirmation Receipt Ticket
  * - Flawless Responsive Behavior (360px to 1024px+)
- * - Full Keyboard (ESC) &bull; Backdrop Interaction Support
+ * - Full Keyboard (ESC) & Backdrop Interaction Support
  */
 
 (function () {
   'use strict';
 
   // Wait for DOM to be ready
-  if (document.readyState === 'loading') &bull; document.addEventListener('DOMContentLoaded', initClientBookingEngine);
-  } else &bull; initClientBookingEngine();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initClientBookingEngine);
+  } else {
+    initClientBookingEngine();
   }
 
-  function initClientBookingEngine() &bull; ensureModalMarkup();
+  function initClientBookingEngine() {
+    ensureModalMarkup();
 
-    const bookingModal &bull; document.getElementById('booking-service-modal');
+    const bookingModal = document.getElementById('booking-service-modal');
     if (!bookingModal) return;
 
-    const closeBtn &bull; document.getElementById('close-booking-service-modal');
-    const bookingForm &bull; document.getElementById('client-booking-form');
-    const confirmView &bull; document.getElementById('booking-confirmation-view');
-    const confirmCloseBtn &bull; document.getElementById('confirm-close-btn');
-    const confirmRebookBtn &bull; document.getElementById('confirm-rebook-btn');
-    const submitBtn &bull; document.getElementById('client-booking-submit-btn');
+    const closeBtn = document.getElementById('close-booking-service-modal');
+    const bookingForm = document.getElementById('client-booking-form');
+    const confirmView = document.getElementById('booking-confirmation-view');
+    const confirmCloseBtn = document.getElementById('confirm-close-btn');
+    const confirmRebookBtn = document.getElementById('confirm-rebook-btn');
+    const submitBtn = document.getElementById('client-booking-submit-btn');
 
     // Date picker: ensure user cannot pick past dates
-    const dateInput &bull; document.getElementById('client-date');
-    if (dateInput) &bull; const today &bull; new Date().toISOString().split('T')[0];
-      dateInput.min &bull; today;
-      if (!dateInput.value) &bull; dateInput.value &bull; today;
+    const dateInput = document.getElementById('client-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      if (!dateInput.value) {
+        dateInput.value = today;
       }
     }
 
@@ -41,20 +48,23 @@
     attachBookingTriggers(bookingModal);
 
     // Close handlers
-    if (closeBtn) &bull; closeBtn.addEventListener('click', (e) => {
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         closeBookingModal(bookingModal);
       });
     }
 
-    if (confirmCloseBtn) &bull; confirmCloseBtn.addEventListener('click', (e) => {
+    if (confirmCloseBtn) {
+      confirmCloseBtn.addEventListener('click', (e) => {
         e.preventDefault();
         closeBookingModal(bookingModal);
         resetBookingCard();
       });
     }
 
-    if (confirmRebookBtn) &bull; confirmRebookBtn.addEventListener('click', (e) => {
+    if (confirmRebookBtn) {
+      confirmRebookBtn.addEventListener('click', (e) => {
         e.preventDefault();
         resetBookingCard();
       });
@@ -62,23 +72,26 @@
 
     // Backdrop click
     bookingModal.addEventListener('click', (e) => {
-      if (e.target &bull; bookingModal) &bull; closeBookingModal(bookingModal);
+      if (e.target === bookingModal) {
+        closeBookingModal(bookingModal);
       }
     });
 
     // Keyboard ESC key handler
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && bookingModal.classList.contains('active')) &bull; closeBookingModal(bookingModal);
+      if (e.key === 'Escape' && bookingModal.classList.contains('active')) {
+        closeBookingModal(bookingModal);
       }
     });
 
-    // Interactive Diagnostic Stage Switcher &bull; Live Image Synchronization
+    // Interactive Diagnostic Stage Switcher & Live Image Synchronization
     initDiagnosticStageSwitcher();
 
-    function initDiagnosticStageSwitcher() &bull; const previewCards &bull; document.querySelectorAll('.service-preview-card');
-      const stageImg &bull; document.getElementById('booking-stage-img');
-      const stageCaption &bull; document.getElementById('booking-stage-caption');
-      const serviceSelect &bull; document.getElementById('client-service-select');
+    function initDiagnosticStageSwitcher() {
+      const previewCards = document.querySelectorAll('.service-preview-card');
+      const stageImg = document.getElementById('booking-stage-img');
+      const stageCaption = document.getElementById('booking-stage-caption');
+      const serviceSelect = document.getElementById('client-service-select');
 
       previewCards.forEach(card => {
         card.addEventListener('click', (e) => {
@@ -86,24 +99,29 @@
           previewCards.forEach(c => c.classList.remove('active'));
           card.classList.add('active');
 
-          const imgSrc &bull; card.getAttribute('data-service-img');
-          const serviceVal &bull; card.getAttribute('data-service-val');
-          const captionText &bull; card.getAttribute('data-caption');
+          const imgSrc = card.getAttribute('data-service-img');
+          const serviceVal = card.getAttribute('data-service-val');
+          const captionText = card.getAttribute('data-caption');
 
-          if (stageImg &bull; imgSrc) &bull; stageImg.style.opacity = '0.35';
+          if (stageImg && imgSrc) {
+            stageImg.style.opacity = '0.35';
             stageImg.style.transform = 'scale(0.98)';
             setTimeout(() => {
-              stageImg.src &bull; imgSrc;
+              stageImg.src = imgSrc;
               stageImg.style.opacity = '1';
               stageImg.style.transform = 'scale(1)';
             }, 180);
           }
 
-          if (stageCaption &bull; captionText) &bull; const capTextEl &bull; stageCaption.querySelector('.caption-text');
-            if (capTextEl) capTextEl.textContent &bull; captionText;
+          if (stageCaption && captionText) {
+            const capTextEl = stageCaption.querySelector('.caption-text');
+            if (capTextEl) capTextEl.textContent = captionText;
           }
 
-          if (serviceSelect &bull; serviceVal) &bull; for (let i &bull; 0; i < serviceSelect.options.length; i++) &bull; if (serviceSelect.options[i].value &bull; serviceVal &bull; serviceSelect.options[i].value.includes(serviceVal) &bull; serviceVal.includes(serviceSelect.options[i].value)) &bull; serviceSelect.selectedIndex &bull; i;
+          if (serviceSelect && serviceVal) {
+            for (let i = 0; i < serviceSelect.options.length; i++) {
+              if (serviceSelect.options[i].value === serviceVal || serviceSelect.options[i].value.includes(serviceVal) || serviceVal.includes(serviceSelect.options[i].value)) {
+                serviceSelect.selectedIndex = i;
                 break;
               }
             }
@@ -111,22 +129,26 @@
         });
       });
 
-      if (serviceSelect) &bull; serviceSelect.addEventListener('change', () => {
-          const selectedVal &bull; serviceSelect.value;
+      if (serviceSelect) {
+        serviceSelect.addEventListener('change', () => {
+          const selectedVal = serviceSelect.value;
           previewCards.forEach(card => {
-            const cardVal &bull; card.getAttribute('data-service-val');
-            if (cardVal &bull; (selectedVal.includes(cardVal) &bull; cardVal.includes(selectedVal))) &bull; previewCards.forEach(c => c.classList.remove('active'));
+            const cardVal = card.getAttribute('data-service-val');
+            if (cardVal && (selectedVal.includes(cardVal) || cardVal.includes(selectedVal))) {
+              previewCards.forEach(c => c.classList.remove('active'));
               card.classList.add('active');
-              const imgSrc &bull; card.getAttribute('data-service-img');
-              const captionText &bull; card.getAttribute('data-caption');
-              if (stageImg &bull; imgSrc) &bull; stageImg.style.opacity = '0.35';
+              const imgSrc = card.getAttribute('data-service-img');
+              const captionText = card.getAttribute('data-caption');
+              if (stageImg && imgSrc) {
+                stageImg.style.opacity = '0.35';
                 setTimeout(() => {
-                  stageImg.src &bull; imgSrc;
+                  stageImg.src = imgSrc;
                   stageImg.style.opacity = '1';
                 }, 180);
               }
-              if (stageCaption &bull; captionText) &bull; const capTextEl &bull; stageCaption.querySelector('.caption-text');
-                if (capTextEl) capTextEl.textContent &bull; captionText;
+              if (stageCaption && captionText) {
+                const capTextEl = stageCaption.querySelector('.caption-text');
+                if (capTextEl) capTextEl.textContent = captionText;
               }
             }
           });
@@ -134,92 +156,107 @@
       }
     }
 
-    // Form Submission &bull; Validation
-    if (bookingForm) &bull; bookingForm.addEventListener('submit', handleBookingSubmit);
+    // Form Submission & Validation
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', handleBookingSubmit);
     }
 
-    function handleBookingSubmit(e) &bull; e.preventDefault();
+    function handleBookingSubmit(e) {
+      e.preventDefault();
 
-      const nameInput &bull; document.getElementById('client-name');
-      const phoneInput &bull; document.getElementById('client-phone');
-      const emailInput &bull; document.getElementById('client-email');
-      const vehicleInput &bull; document.getElementById('client-vehicle');
-      const serviceSelect &bull; document.getElementById('client-service-select');
-      const dateVal &bull; document.getElementById('client-date');
-      const timeVal &bull; document.getElementById('client-time-slot');
+      const nameInput = document.getElementById('client-name');
+      const phoneInput = document.getElementById('client-phone');
+      const emailInput = document.getElementById('client-email');
+      const vehicleInput = document.getElementById('client-vehicle');
+      const serviceSelect = document.getElementById('client-service-select');
+      const dateVal = document.getElementById('client-date');
+      const timeVal = document.getElementById('client-time-slot');
 
-      let isValid &bull; true;
+      let isValid = true;
 
       // Validate Name
-      if (!nameInput.value.trim()) &bull; showFieldError(nameInput, 'name-error', 'Please provide client full name');
-        isValid &bull; false;
-      } else &bull; clearFieldError(nameInput, 'name-error');
+      if (!nameInput.value.trim()) {
+        showFieldError(nameInput, 'name-error', 'Please provide client full name');
+        isValid = false;
+      } else {
+        clearFieldError(nameInput, 'name-error');
       }
 
       // Validate Phone
       const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]{6,14}$/;
-      if (!phoneInput.value.trim() || !phoneRegex.test(phoneInput.value.trim().replace(/\s+/g, ''))) &bull; showFieldError(phoneInput, 'phone-error', 'Please enter a valid contact phone number');
-        isValid &bull; false;
-      } else &bull; clearFieldError(phoneInput, 'phone-error');
+      if (!phoneInput.value.trim() || !phoneRegex.test(phoneInput.value.trim().replace(/\s+/g, ''))) {
+        showFieldError(phoneInput, 'phone-error', 'Please enter a valid contact phone number');
+        isValid = false;
+      } else {
+        clearFieldError(phoneInput, 'phone-error');
       }
 
       // Validate Email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) &bull; showFieldError(emailInput, 'email-error', 'Please provide a valid email address');
-        isValid &bull; false;
-      } else &bull; clearFieldError(emailInput, 'email-error');
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        showFieldError(emailInput, 'email-error', 'Please provide a valid email address');
+        isValid = false;
+      } else {
+        clearFieldError(emailInput, 'email-error');
       }
 
       // Validate Vehicle
-      if (!vehicleInput.value.trim()) &bull; showFieldError(vehicleInput, 'vehicle-error', 'Please specify vehicle make and model');
-        isValid &bull; false;
-      } else &bull; clearFieldError(vehicleInput, 'vehicle-error');
+      if (!vehicleInput.value.trim()) {
+        showFieldError(vehicleInput, 'vehicle-error', 'Please specify vehicle make and model');
+        isValid = false;
+      } else {
+        clearFieldError(vehicleInput, 'vehicle-error');
       }
 
       // Validate Date
-      if (!dateVal.value) &bull; showFieldError(dateVal, 'date-error', 'Please choose an appointment date');
-        isValid &bull; false;
-      } else &bull; clearFieldError(dateVal, 'date-error');
+      if (!dateVal.value) {
+        showFieldError(dateVal, 'date-error', 'Please choose an appointment date');
+        isValid = false;
+      } else {
+        clearFieldError(dateVal, 'date-error');
       }
 
-      if (!isValid) &bull; return;
+      if (!isValid) {
+        return;
       }
 
       // Show Loading State on submit button
-      if (submitBtn) &bull; submitBtn.classList.add('loading');
-        submitBtn.disabled &bull; true;
+      if (submitBtn) {
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
       }
 
       // Simulate Fast Server Bay Allocation (450ms)
       setTimeout(() => {
-        if (submitBtn) &bull; submitBtn.classList.remove('loading');
-          submitBtn.disabled &bull; false;
+        if (submitBtn) {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
         }
 
         // Generate Realistic Confirmation Data
-        const clientName &bull; nameInput.value.trim();
-        const clientPhone &bull; phoneInput.value.trim();
-        const clientEmail &bull; emailInput.value.trim();
-        const clientVehicle &bull; vehicleInput.value.trim();
-        const serviceChosen &bull; serviceSelect.options[serviceSelect.selectedIndex].text;
-        const selectedDate &bull; new Date(dateVal.value);
-        const formattedDate &bull; selectedDate.toLocaleDateString('en-US', {
+        const clientName = nameInput.value.trim();
+        const clientPhone = phoneInput.value.trim();
+        const clientEmail = emailInput.value.trim();
+        const clientVehicle = vehicleInput.value.trim();
+        const serviceChosen = serviceSelect.options[serviceSelect.selectedIndex].text;
+        const selectedDate = new Date(dateVal.value);
+        const formattedDate = selectedDate.toLocaleDateString('en-US', {
           weekday: 'short',
           month: 'short',
           day: 'numeric',
           year: 'numeric'
         });
-        const chosenTime &bull; timeVal.value;
+        const chosenTime = timeVal.value;
 
         // Random Assigned Bay from Specialist Bay List
         const bayList = [
           'Bay #1 (High-Voltage EV / Hybrid Bench)',
-          'Bay #2 (Master Auto Electrical &bull; ECU Lab)',
-          'Bay #3 (AGM Battery Diagnostics &bull; Load Station)',
-          'Bay #4 (Alternator &bull; Starter Testing Rig)'
+          'Bay #2 (Master Auto Electrical & ECU Lab)',
+          'Bay #3 (AGM Battery Diagnostics & Load Station)',
+          'Bay #4 (Alternator & Starter Testing Rig)'
         ];
-        const assignedBay &bull; bayList[Math.floor(Math.random() &bull; bayList.length)];
-        const bookingRefCode = '#VOLT-' + Math.floor(1000 &bull; Math.random() &bull; 9000) + '-BAY';
+        const assignedBay = bayList[Math.floor(Math.random() * bayList.length)];
+        const bookingRefCode = '#VOLT-' + Math.floor(1000 + Math.random() * 9000) + '-BAY';
 
         // Populate Ticket
         setElementText('confirm-client-name', clientName);
@@ -233,52 +270,64 @@
         setElementText('confirm-email-display', clientEmail);
 
         // Transition views smoothly inside the atelier suite
-        const workspace &bull; document.getElementById('booking-main-workspace');
+        const workspace = document.getElementById('booking-main-workspace');
         if (workspace) workspace.style.display = 'none';
         else if (bookingForm) bookingForm.style.display = 'none';
         confirmView.style.display = 'flex';
 
         // Trigger Global Toast if available
-        if (typeof window.showToast === 'function') &bull; window.showToast(`Priority Bay Allocated: ${clientName} (${bookingRefCode})`);
-        } else &bull; showFallbackToast(`Priority Bay Allocated: ${clientName} (${bookingRefCode})`);
+        if (typeof window.showToast === 'function') {
+          window.showToast(`Priority Bay Allocated: ${clientName} (${bookingRefCode})`);
+        } else {
+          showFallbackToast(`Priority Bay Allocated: ${clientName} (${bookingRefCode})`);
         }
 
         // Scroll top of modal container
-        const scrollTarget &bull; bookingModal.querySelector('.booking-suite-container') &bull; bookingModal.querySelector('.booking-card');
+        const scrollTarget = bookingModal.querySelector('.booking-suite-container') || bookingModal.querySelector('.booking-card');
         scrollTarget?.scrollTo({ top: 0, behavior: 'smooth' });
       }, 500);
     }
 
-    function showFieldError(input, errorId, msg) &bull; const field &bull; input.closest('.form-field');
-      if (field) &bull; field.classList.add('has-error');
-        const errEl &bull; document.getElementById(errorId);
-        if (errEl) errEl.textContent &bull; msg;
+    function showFieldError(input, errorId, msg) {
+      const field = input.closest('.form-field');
+      if (field) {
+        field.classList.add('has-error');
+        const errEl = document.getElementById(errorId);
+        if (errEl) errEl.textContent = msg;
       }
     }
 
-    function clearFieldError(input, errorId) &bull; const field &bull; input.closest('.form-field');
-      if (field) &bull; field.classList.remove('has-error');
+    function clearFieldError(input, errorId) {
+      const field = input.closest('.form-field');
+      if (field) {
+        field.classList.remove('has-error');
       }
     }
 
-    function resetBookingCard() &bull; const workspace &bull; document.getElementById('booking-main-workspace');
+    function resetBookingCard() {
+      const workspace = document.getElementById('booking-main-workspace');
       if (workspace) workspace.style.display = 'grid';
-      if (bookingForm) &bull; bookingForm.reset();
+      if (bookingForm) {
+        bookingForm.reset();
         bookingForm.style.display = 'flex';
         bookingForm.querySelectorAll('.has-error').forEach(f => f.classList.remove('has-error'));
       }
-      if (confirmView) &bull; confirmView.style.display = 'none';
+      if (confirmView) {
+        confirmView.style.display = 'none';
       }
-      if (dateInput) &bull; dateInput.value &bull; new Date().toISOString().split('T')[0];
+      if (dateInput) {
+        dateInput.value = new Date().toISOString().split('T')[0];
       }
     }
   }
 
-  function setElementText(id, text) &bull; const el &bull; document.getElementById(id);
-    if (el) el.textContent &bull; text;
+  function setElementText(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
   }
 
-  function openBookingModal(modal) &bull; if (!modal) return;
+  function openBookingModal(modal) {
+    if (!modal) return;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -289,7 +338,8 @@
     }, 200);
   }
 
-  function closeBookingModal(modal) &bull; if (!modal) return;
+  function closeBookingModal(modal) {
+    if (!modal) return;
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
@@ -297,7 +347,7 @@
 
   function attachBookingTriggers(bookingModal) {
     // Select all relevant buttons that should trigger the booking form card
-    const triggers &bull; document.querySelectorAll(`
+    const triggers = document.querySelectorAll(`
       #header-book-btn,
       .header-cta-btn,
       a[href="book a service.html"],
@@ -317,7 +367,8 @@
 
       btn.addEventListener('click', (e) => {
         // If already on the dedicated book a service page, allow natural in-page scrolling/handling
-        if (window.location.pathname.includes('book%20a%20service.html') &bull; window.location.pathname.includes('book a service.html') &bull; window.location.pathname.includes('book-service')) &bull; return;
+        if (window.location.pathname.includes('book%20a%20service.html') || window.location.pathname.includes('book a service.html') || window.location.pathname.includes('book-service')) {
+          return;
         }
         e.preventDefault();
         e.stopPropagation();
@@ -326,10 +377,15 @@
     });
 
     // Also support global window trigger with optional service pre-fill
-    window.openClientBookingModal &bull; (servicePrefill) => {
+    window.openClientBookingModal = (servicePrefill) => {
       openBookingModal(bookingModal);
-      if (servicePrefill) &bull; const serviceSelect &bull; document.getElementById('client-service-select');
-        if (serviceSelect) &bull; for (let i &bull; 0; i < serviceSelect.options.length; i++) &bull; if (serviceSelect.options[i].text.toLowerCase().includes(servicePrefill.toLowerCase()) &bull; serviceSelect.options[i].value.toLowerCase().includes(servicePrefill.toLowerCase())) &bull; serviceSelect.selectedIndex &bull; i;
+      if (servicePrefill) {
+        const serviceSelect = document.getElementById('client-service-select');
+        if (serviceSelect) {
+          for (let i = 0; i < serviceSelect.options.length; i++) {
+            if (serviceSelect.options[i].text.toLowerCase().includes(servicePrefill.toLowerCase()) || 
+                serviceSelect.options[i].value.toLowerCase().includes(servicePrefill.toLowerCase())) {
+              serviceSelect.selectedIndex = i;
               break;
             }
           }
@@ -338,15 +394,17 @@
     };
   }
 
-  function showFallbackToast(msg) &bull; let toast &bull; document.getElementById('toast-notification');
-    if (!toast) &bull; toast &bull; document.createElement('div');
+  function showFallbackToast(msg) {
+    let toast = document.getElementById('toast-notification');
+    if (!toast) {
+      toast = document.createElement('div');
       toast.id = 'toast-notification';
       toast.className = 'toast-notification';
-      toast.innerHTML = `<div class="toast-icon">&check;</div><div class="toast-message" id="toast-message"></div>`;
+      toast.innerHTML = `<div class="toast-icon">âœ“</div><div class="toast-message" id="toast-message"></div>`;
       document.body.appendChild(toast);
     }
-    const messageEl &bull; document.getElementById('toast-message');
-    if (messageEl) messageEl.textContent &bull; msg;
+    const messageEl = document.getElementById('toast-message');
+    if (messageEl) messageEl.textContent = msg;
     toast.classList.add('active');
     setTimeout(() => {
       toast.classList.remove('active');
@@ -355,9 +413,11 @@
 
   /**
    * Ensures the Premium Booking Form Card markup exists in the DOM.
-   * If it doesn't exist, it dynamically injects it so every page on the site &bull; can seamlessly trigger this card without needing copied markup everywhere.
+   * If it doesn't exist, it dynamically injects it so every page on the site
+   * can seamlessly trigger this card without needing copied markup everywhere.
    */
-  function ensureModalMarkup() &bull; if (document.getElementById('booking-service-modal')) return;
+  function ensureModalMarkup() {
+    if (document.getElementById('booking-service-modal')) return;
 
     const modalHTML = `
   <!-- MODAL: FULL-SCREEN ULTRA-PREMIUM AUTOMOTIVE CLIENT BOOKING ATELIER -->
@@ -372,7 +432,7 @@
       <header class="booking-atelier-header">
         <div class="atelier-header-left">
           <span class="atelier-live-dot"></span>
-          <span class="atelier-loc-tag">VOLTERRA ATELIER &bull; HIGH-VOLTAGE LAB #02</span>
+          <span class="atelier-loc-tag">VOLTERRA ATELIER â€¢ HIGH-VOLTAGE LAB #02</span>
         </div>
 
         <div class="booking-brand-hero-center">
@@ -388,7 +448,7 @@
           <div class="booking-top-meta-strip">
             <div class="booking-bay-status-badge">
               <span class="pulse-indicator-gold"></span>
-              <span>MASTER DIAGNOSTIC BAYS &bull; LIVE CLIENT RESERVATION</span>
+              <span>MASTER DIAGNOSTIC BAYS â€¢ LIVE CLIENT RESERVATION</span>
             </div>
           </div>
         </div>
@@ -407,18 +467,18 @@
       <!-- Main Booking Split Workspace (Active Form Flow) -->
       <div id="booking-main-workspace" class="booking-main-workspace">
         
-        <!-- LEFT COLUMN: CINEMATIC DIAGNOSTIC BENCH &bull; ANIMATED VISUAL STAGE (Fills 100% Height &bull; Zero Empty Space) -->
+        <!-- LEFT COLUMN: CINEMATIC DIAGNOSTIC BENCH & ANIMATED VISUAL STAGE (Fills 100% Height - Zero Empty Space) -->
         <div class="booking-visual-stage">
           <div class="stage-frame-wrapper">
             <!-- Stage Live Status Telemetry HUD -->
             <div class="stage-header-hud">
               <span class="stage-hud-badge live-active">
                 <span class="hud-blink-dot"></span>
-                BAY #02 &bull; ACTIVE DIAGNOSTIC BENCH
+                BAY #02 â€¢ ACTIVE DIAGNOSTIC BENCH
               </span>
               <span class="stage-hud-badge telemetry-val">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                14.42V &bull; PICO OSCILLOSCOPE ACTIVE
+                14.42V â€¢ PICO OSCILLOSCOPE ACTIVE
               </span>
             </div>
 
@@ -457,7 +517,7 @@
 
               <!-- Interactive Caption Badge -->
               <div class="stage-caption-badge" id="booking-stage-caption">
-                <span class="caption-icon">&#9889;</span>
+                <span class="caption-icon">âš¡</span>
                 <span class="caption-text">Master Diagnostic Bench: Multi-Point Electrical Telemetry &amp; Load Calibration</span>
               </div>
             </div>
@@ -474,8 +534,9 @@
                     <img src="assets/images/battery_testing.jpg" alt="Battery Bench" class="preview-thumb-img">
                     <span class="preview-pulse-tag">AGM</span>
                   </div>
-                  <div                    <span class="preview-title">AGM Battery Bench</span>
-                    <span class="preview-price">$129 &bull; 45 Min Bay</span>
+                  <div class="preview-info">
+                    <span class="preview-title">AGM Battery Bench</span>
+                    <span class="preview-price">$129 â€¢ 45 Min Bay</span>
                   </div>
                 </button>
 
@@ -486,7 +547,7 @@
                   </div>
                   <div class="preview-info">
                     <span class="preview-title">ECU &amp; PicoScope</span>
-                    <span class="preview-price">$89 &bull; Instant Code</span>
+                    <span class="preview-price">$89 â€¢ Instant Code</span>
                   </div>
                 </button>
 
@@ -497,7 +558,7 @@
                   </div>
                   <div class="preview-info">
                     <span class="preview-title">Alternator &amp; Starter</span>
-                    <span class="preview-price">$149 &bull; High-Amp</span>
+                    <span class="preview-price">$149 â€¢ High-Amp</span>
                   </div>
                 </button>
 
@@ -508,7 +569,7 @@
                   </div>
                   <div class="preview-info">
                     <span class="preview-title">EV / Hybrid Isolation</span>
-                    <span class="preview-price">$199 &bull; Certified</span>
+                    <span class="preview-price">$199 â€¢ Certified</span>
                   </div>
                 </button>
               </div>
@@ -517,22 +578,22 @@
             <!-- Client Trust Quality Strip -->
             <div class="stage-guarantee-strip">
               <div class="stage-strip-item">
-                <span class="strip-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <span class="strip-icon">ðŸ›¡ï¸</span>
                 <span class="strip-label">24-Month Warranty</span>
               </div>
               <div class="stage-strip-item">
-                <span class="strip-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                <span class="strip-icon">âš¡</span>
                 <span class="strip-label">OEM Coding Verified</span>
               </div>
               <div class="stage-strip-item">
-                <span class="strip-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span>
+                <span class="strip-icon">ðŸ†</span>
                 <span class="strip-label">Master Electricians</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: EXECUTIVE CLIENT BOOKING CONSOLE (Chassis 2 &bull; Matched &bull; Symmetrical) -->
+        <!-- RIGHT COLUMN: EXECUTIVE CLIENT BOOKING CONSOLE (Chassis 2 - Matched & Symmetrical) -->
         <div class="booking-console-pane">
           <div class="console-frame-wrapper atelier-chassis-frame">
             <!-- Console Live Status Telemetry HUD (Matches Left Stage HUD Baseline) -->
@@ -543,15 +604,13 @@
               </span>
               <span class="stage-hud-badge telemetry-val">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                PRIORITY ALLOCATION PROTOCOL &bull; 256-BIT SSL
-              </span>
-            </div>�€¢ 256-BIT SSL
+                PRIORITY ALLOCATION PROTOCOL â€¢ 256-BIT SSL
               </span>
             </div>
 
             <form id="client-booking-form" class="booking-form" novalidate>
               
-              <!-- Section 1: Client &bull; Vehicle Information -->
+              <!-- Section 1: Client & Vehicle Information -->
               <div class="booking-panel-section">
                 <div class="booking-section-label">
                   <span class="section-number">01</span>
@@ -604,7 +663,7 @@
                   <span class="field-error-msg" id="email-error">Please provide a valid email</span>
                 </div>
 
-                <!-- Vehicle Make &bull; Model -->
+                <!-- Vehicle Make & Model -->
                 <div class="form-field">
                   <label for="client-vehicle" class="form-label">
                     <span>Vehicle Make, Model &amp; Year <span class="required-star">*</span></span>
@@ -620,7 +679,7 @@
               </div>
             </div>
 
-            <!-- Section 2: Electrical Architecture &bull; Powertrain -->
+            <!-- Section 2: Electrical Architecture & Powertrain -->
             <div class="booking-panel-section">
               <div class="booking-section-label">
                 <span class="section-number">02</span>
@@ -631,7 +690,7 @@
                 <label class="powertrain-chip">
                   <input type="radio" name="powertrain_type" value="Standard 12V/24V ICE" checked>
                   <span class="chip-content">
-                    <span class="chip-icon">&#128267;</span>
+                    <span class="chip-icon">ðŸ”‹</span>
                     <span class="chip-text-wrap">
                       <span class="chip-title">12V/24V ICE</span>
                       <span class="chip-sub">AGM / EFB Batteries</span>
@@ -641,7 +700,7 @@
                 <label class="powertrain-chip">
                   <input type="radio" name="powertrain_type" value="Hybrid / Full EV High-Voltage">
                   <span class="chip-content">
-                    <span class="chip-icon">&#9889;</span>
+                    <span class="chip-icon">âš¡</span>
                     <span class="chip-text-wrap">
                       <span class="chip-title">Hybrid &amp; EV (400V-800V)</span>
                       <span class="chip-sub">High-Voltage Isolation</span>
@@ -651,7 +710,7 @@
                 <label class="powertrain-chip">
                   <input type="radio" name="powertrain_type" value="European Luxury / High-Performance">
                   <span class="chip-content">
-                    <span class="chip-icon">&#127950;&#65039;</span>
+                    <span class="chip-icon">ðŸŽï¸</span>
                     <span class="chip-text-wrap">
                       <span class="chip-title">Euro Luxury</span>
                       <span class="chip-sub">Porsche / BMW / Audi CAN</span>
@@ -661,7 +720,7 @@
                 <label class="powertrain-chip">
                   <input type="radio" name="powertrain_type" value="Commercial / Fleet Vehicle">
                   <span class="chip-content">
-                    <span class="chip-icon">&#128667;</span>
+                    <span class="chip-icon">ðŸš›</span>
                     <span class="chip-text-wrap">
                       <span class="chip-title">Commercial &amp; Fleet</span>
                       <span class="chip-sub">Dual Alternator / Heavy Duty</span>
@@ -671,7 +730,7 @@
               </div>
             </div>
 
-            <!-- Section 3: Specialized Battery &bull; Electrical Service -->
+            <!-- Section 3: Specialized Battery & Electrical Service -->
             <div class="booking-panel-section">
               <div class="booking-section-label">
                 <span class="section-number">03</span>
@@ -684,13 +743,13 @@
                 </label>
                 <div class="booking-select-wrap">
                   <select id="client-service-select" name="client_service" class="custom-select booking-select" required>
-                    <option value="Battery Replacement ($129)" selected>&#128267; High-Performance Battery Replacement &amp; AGM Coding ($129)</option>
-                    <option value="Computer Diagnostics ($89)">&#9889; Master Computer Diagnostics &amp; ECU Fault Scan ($89)</option>
-                    <option value="Alternator &amp; Starter ($149)">&#9881;&#65039; Alternator &amp; Starter Motor Testing / Overhaul ($149)</option>
-                    <option value="Parasitic Drain Repair ($119)">&#128268; Parasitic Battery Drain &amp; Complex Wiring Loom Repair ($119)</option>
-                    <option value="EV High-Voltage Isolation ($199)">&#9889; Hybrid / EV High-Voltage Isolation &amp; Battery Health ($199)</option>
-                    <option value="Climate Control &amp; AC ($109)">&#10052;&#65039; Auto Electrical AC &amp; Sensor Calibration ($109)</option>
-                    <option value="Rapid Jump Rescue ($79)">&#128680; Rapid Mobile Roadside Jump-Start &amp; Battery Dispatch ($79)</option>
+                    <option value="Battery Replacement ($129)" selected>ðŸ”‹ High-Performance Battery Replacement &amp; AGM Coding ($129)</option>
+                    <option value="Computer Diagnostics ($89)">âš¡ Master Computer Diagnostics &amp; ECU Fault Scan ($89)</option>
+                    <option value="Alternator &amp; Starter ($149)">âš™ï¸ Alternator &amp; Starter Motor Testing / Overhaul ($149)</option>
+                    <option value="Parasitic Drain Repair ($119)">ðŸ”Œ Parasitic Battery Drain &amp; Complex Wiring Loom Repair ($119)</option>
+                    <option value="EV High-Voltage Isolation ($199)">âš¡ Hybrid / EV High-Voltage Isolation &amp; Battery Health ($199)</option>
+                    <option value="Climate Control &amp; AC ($109)">â„ï¸ Auto Electrical AC &amp; Sensor Calibration ($109)</option>
+                    <option value="Rapid Jump Rescue ($79)">ðŸš¨ Rapid Mobile Roadside Jump-Start &amp; Battery Dispatch ($79)</option>
                   </select>
                   <span class="select-chevron">
                     <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor"><path d="M4 6L8 10L12 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -721,9 +780,9 @@
                   </label>
                   <div class="booking-select-wrap">
                     <select id="client-time-slot" name="client_time_slot" class="custom-select booking-select" required>
-                      <option value="Morning Slot (08:30 AM &bull; 11:30 AM)" selected>Morning (08:30 AM &bull; 11:30 AM)</option>
-                      <option value="Midday Slot (11:30 AM &bull; 02:30 PM)">Midday (11:30 AM &bull; 02:30 PM)</option>
-                      <option value="Afternoon Slot (02:30 PM &bull; 05:30 PM)">Afternoon (02:30 PM &bull; 05:30 PM)</option>
+                      <option value="Morning Slot (08:30 AM â€“ 11:30 AM)" selected>Morning (08:30 AM â€“ 11:30 AM)</option>
+                      <option value="Midday Slot (11:30 AM â€“ 02:30 PM)">Midday (11:30 AM â€“ 02:30 PM)</option>
+                      <option value="Afternoon Slot (02:30 PM â€“ 05:30 PM)">Afternoon (02:30 PM â€“ 05:30 PM)</option>
                       <option value="Express Priority Immediate Bay">Express Immediate Bay (Priority)</option>
                     </select>
                     <span class="select-chevron">
@@ -734,7 +793,7 @@
               </div>
             </div>
 
-            <!-- Section 4: Symptoms &bull; Client Notes -->
+            <!-- Section 4: Symptoms & Client Notes -->
             <div class="booking-panel-section">
               <div class="booking-section-label">
                 <span class="section-number">04</span>
@@ -750,9 +809,9 @@
               </div>
             </div>
 
-            <!-- Estimation &bull; Guarantee Banner -->
+            <!-- Estimation & Guarantee Banner -->
             <div class="booking-guarantee-banner">
-              <div class="guarantee-icon">&#128737;&#65039;</div>
+              <div class="guarantee-icon">ðŸ›¡ï¸</div>
               <div class="guarantee-text">
                 <strong>Workshop Bench Guarantee:</strong> Transparent pricing. Bench scan fee applies 100% directly toward repair credit if you proceed with our master electrical overhaul.
               </div>
@@ -767,7 +826,7 @@
                   <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
-              <p class="booking-privacy-note">&#128274; SSL-Encrypted Client Reservation &bull; Instant SMS &amp; Calendar Confirmation</p>
+              <p class="booking-privacy-note">ðŸ”’ SSL-Encrypted Client Reservation â€¢ Instant SMS &amp; Calendar Confirmation</p>
             </div>
           </form>
         </div>
@@ -823,7 +882,7 @@
             </div>
             <div class="ticket-item">
               <span class="item-label">Time Window:</span>
-              <span class="item-val" id="confirm-time">08:30 AM &bull; 11:30 AM</span>
+              <span class="item-val" id="confirm-time">08:30 AM â€“ 11:30 AM</span>
             </div>
             <div class="ticket-item ticket-col-span">
               <span class="item-label">Selected Service:</span>
@@ -833,7 +892,7 @@
         </div>
 
         <div class="confirmation-notes">
-          <p>&#128242; An instant confirmation SMS and telemetry token have been sent to <span id="confirm-phone-display">+1 (555) 000-0000</span> and <span id="confirm-email-display">client@example.com</span>.</p>
+          <p>ðŸ“² An instant confirmation SMS and telemetry token have been sent to <span id="confirm-phone-display">+1 (555) 000-0000</span> and <span id="confirm-email-display">client@example.com</span>.</p>
         </div>
 
         <div class="confirmation-actions">
