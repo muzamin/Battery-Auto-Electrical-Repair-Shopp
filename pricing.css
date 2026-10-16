@@ -123,6 +123,8 @@
 .pricing-hero-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
   gap: 10px;
   background: rgba(200, 164, 93, 0.12);
   border: 1px solid rgba(200, 164, 93, 0.36);
@@ -132,6 +134,12 @@
   margin-bottom: 20px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.pricing-hero-badge .pulse-indicator {
+  flex-shrink: 0;
 }
 
 .pricing-hero-badge .badge-text {
@@ -141,6 +149,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-secondary);
+  white-space: nowrap;
+  line-height: 1;
 }
 
 [data-theme="light"] .pricing-hero-badge {
@@ -685,8 +695,16 @@
 }
 
 .hallmark-star {
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #17231D;
+}
+
+.hallmark-star svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
 }
 
 [data-theme="light"] .featured-hallmark {
@@ -1048,9 +1066,11 @@
 
 .pricing-matrix-table-wrap {
   max-width: 1080px;
+  width: 100%;
   margin: 36px auto 0 auto;
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid rgba(200, 164, 93, 0.25);
   background: var(--card-bg);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -1058,6 +1078,7 @@
 
 .pricing-matrix-table {
   width: 100%;
+  min-width: 580px;
   border-collapse: collapse;
   text-align: left;
 }
@@ -1353,14 +1374,81 @@
 }
 
 @media (max-width: 480px) {
+  .pricing-hero-badge {
+    padding: 5px 12px;
+    gap: 7px;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .pricing-hero-badge .badge-text {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .pricing-hero-badge .pulse-indicator {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+  }
+
+  .pricing-hero-headline {
+    font-size: clamp(1.75rem, 6vw, 2.1rem);
+    word-break: break-word;
+  }
+
   .pricing-hero-mosaic-card {
     grid-template-columns: 1fr;
-    height: 270px;
-    border-radius: 24px;
+    height: 250px;
+    border-radius: 20px;
     padding: 10px;
   }
 
   .mosaic-col-stacked {
     display: none;
+  }
+
+  .pricing-card {
+    padding: 24px 16px;
+  }
+
+  .pricing-addons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .addon-card {
+    padding: 18px 16px;
+  }
+
+  .value-pillar-box {
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pricing-hero-badge {
+    padding: 4px 8px;
+    gap: 5px;
+  }
+
+  .pricing-hero-badge .badge-text {
+    font-size: 0.51rem;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+  }
+
+  .pricing-hero-badge .pulse-indicator {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+  }
+
+  .pricing-card-header .plan-price .amount {
+    font-size: 2.2rem;
+  }
+  .pricing-card-features li {
+    font-size: 0.84rem;
+    gap: 8px;
   }
 }

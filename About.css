@@ -78,6 +78,8 @@
 .about-hero-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
   gap: 8px;
   background-color: var(--badge-bg);
   border: 1px solid var(--badge-border);
@@ -87,6 +89,17 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.about-hero-badge .pulse-indicator {
+  flex-shrink: 0;
+}
+
+.about-hero-badge .badge-text {
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .about-hero-headline {
@@ -1107,5 +1120,82 @@
 
   .sanctuary-checklist {
     grid-template-columns: 1fr;
+  }
+
+  [dir="rtl"] .success-timeline-wrap::before {
+    left: auto;
+    right: 20px;
+  }
+
+  [dir="rtl"] .timeline-milestone-item.left,
+  [dir="rtl"] .timeline-milestone-item.right {
+    padding-left: 0;
+    padding-right: 54px;
+  }
+
+  [dir="rtl"] .milestone-marker {
+    left: auto;
+    right: 20px;
+    transform: translate(50%, -50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-badge {
+    padding: 5px 12px;
+    gap: 6px;
+    margin-bottom: 12px;
+    max-width: 100%;
+  }
+
+  .about-hero-badge .badge-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .about-hero-badge .pulse-indicator {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+  }
+
+  .about-hero-headline {
+    font-size: clamp(1.75rem, 5.5vw, 2.2rem);
+    word-break: break-word;
+  }
+
+  .about-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .about-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timeline-milestone-item.left,
+  .timeline-milestone-item.right {
+    padding-left: 38px;
+  }
+
+  [dir="rtl"] .timeline-milestone-item.left,
+  [dir="rtl"] .timeline-milestone-item.right {
+    padding-right: 38px;
+    padding-left: 0;
+  }
+
+  .milestone-content-card {
+    padding: 16px 14px;
+  }
+
+  .team-card {
+    padding: 20px 16px;
+  }
+
+  .sanctuary-box {
+    padding: 20px 16px;
   }
 }

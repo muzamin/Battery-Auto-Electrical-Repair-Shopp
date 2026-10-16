@@ -25,7 +25,7 @@ const PRICING_PACKAGES_DATA = {
     priceVal: '$49',
     pricePrefix: 'Starting from',
     priceSuffix: 'flat rate',
-    estTime: '20â€“30 Mins',
+    estTime: '20&ndash;30 Mins',
     warranty: 'Written Diagnostic Report Included',
     rating: '4.98 / 5.0 (340+ Verified Tests)',
     telemetry: {
@@ -34,7 +34,7 @@ const PRICING_PACKAGES_DATA = {
       rows: [
         { key: 'Rated Capacity', val: '750 CCA (SAE/EN)', gold: false },
         { key: 'Measured Cold Amps', val: '712 CCA Normal', gold: true },
-        { key: 'Internal Cell Resistance', val: '3.82 mÎ© Optimal', gold: false },
+        { key: 'Internal Cell Resistance', val: '3.82 m&Omega; Optimal', gold: false },
         { key: 'State of Health (SOH)', val: '95% Road Ready', gold: true }
       ]
     },
@@ -110,7 +110,7 @@ const PRICING_PACKAGES_DATA = {
     priceVal: '$139',
     pricePrefix: 'Labor starting from',
     priceSuffix: '+ Battery Unit',
-    estTime: '45â€“60 Mins',
+    estTime: '45&ndash;60 Mins',
     warranty: 'Up to 36-Month Nationwide Free Replacement',
     rating: '4.99 / 5.0 (620+ Installations)',
     telemetry: {
@@ -125,7 +125,7 @@ const PRICING_PACKAGES_DATA = {
     },
     context: {
       lead: 'In contemporary European, Asian, and American vehicles, swapping a battery is no longer a simple mechanical task. Intelligent alternators constantly adjust their charging rate based on the battery age stored in the vehicle ECU.',
-      body: 'If a new battery is installed without registering it via OBD2 dealer software, the vehicle alternator continues to blast the new unit with high voltage meant for an old, degraded batteryâ€”destroying the fresh battery in as little as 6 to 12 months. VOLTERRA utilizes factory diagnostic terminals to register the new serial number, capacity, and chemistry into your vehicle computer.',
+      body: 'If a new battery is installed without registering it via OBD2 dealer software, the vehicle alternator continues to blast the new unit with high voltage meant for an old, degraded battery&mdash;destroying the fresh battery in as little as 6 to 12 months. VOLTERRA utilizes factory diagnostic terminals to register the new serial number, capacity, and chemistry into your vehicle computer.',
       deliverables: [
         {
           title: 'Uninterrupted OBD2 Memory Saver Support',
@@ -195,7 +195,7 @@ const PRICING_PACKAGES_DATA = {
     priceVal: '$149',
     pricePrefix: 'Starting from',
     priceSuffix: '/ diagnosis',
-    estTime: '60â€“90 Mins',
+    estTime: '60&ndash;90 Mins',
     warranty: 'Guaranteed Root-Cause Pinpoint',
     rating: '5.0 / 5.0 (490+ Network Diagnoses)',
     telemetry: {
@@ -204,7 +204,7 @@ const PRICING_PACKAGES_DATA = {
       rows: [
         { key: 'CAN-High Signal', val: '3.52 V Clean Wave', gold: true },
         { key: 'CAN-Low Signal', val: '1.48 V Clean Wave', gold: true },
-        { key: 'Bus Resistance', val: '60.2 Î© Dual Termination', gold: false },
+        { key: 'Bus Resistance', val: '60.2 &Omega; Dual Termination', gold: false },
         { key: 'Parasitic Sleep Drain', val: '12 mA Healthy', gold: true }
       ]
     },
@@ -255,7 +255,7 @@ const PRICING_PACKAGES_DATA = {
       { num: '04', title: 'Verified Action Plan', desc: 'Technician presents visual proof of fault and exact component-level repair estimate.' }
     ],
     symptoms: [
-      { title: 'Battery Dies Overnight', desc: 'Vehicle starts fine if driven daily, but goes dead after sitting parked for 24â€“48 hours.' },
+      { title: 'Battery Dies Overnight', desc: 'Vehicle starts fine if driven daily, but goes dead after sitting parked for 24&ndash;48 hours.' },
       { title: 'Cluster Christmas Tree Effect', desc: 'ABS, Traction Control, Airbag, and Check Engine lights turn on simultaneously.' },
       { title: 'Intermittent Limp Mode', desc: 'Vehicle suddenly loses throttle response or shifts harshly without mechanical cause.' },
       { title: 'Keyless Entry / Infotainment Freezing', desc: 'Screen goes blank or remote key fob fails to unlock vehicle intermittently.' }
@@ -1108,11 +1108,20 @@ function initMobileNavigation() {
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           navMenu.classList.remove('open');
         }
       });
     });
+
+    const mobileBookBtn = document.getElementById('nav-mobile-book-btn');
+    if (mobileBookBtn) {
+      mobileBookBtn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          navMenu.classList.remove('open');
+        }
+      });
+    }
   }
 }
 

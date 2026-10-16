@@ -92,11 +92,20 @@ function initMobileNavigation() {
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           navMenu.classList.remove('open');
         }
       });
     });
+
+    const mobileBookBtn = document.getElementById('nav-mobile-book-btn');
+    if (mobileBookBtn) {
+      mobileBookBtn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          navMenu.classList.remove('open');
+        }
+      });
+    }
   }
 }
 

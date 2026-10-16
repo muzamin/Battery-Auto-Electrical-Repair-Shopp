@@ -96,7 +96,7 @@ function initMobileNavigation() {
     // Close mobile nav when clicking a link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           navMenu.classList.remove('open');
         }
       });
@@ -106,7 +106,17 @@ function initMobileNavigation() {
     const home2Link = document.getElementById('nav-home2-link');
     if (home2Link) {
       home2Link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
+          navMenu.classList.remove('open');
+        }
+      });
+    }
+
+    // Close mobile nav when clicking the Book a Service button in mobile drawer
+    const mobileBookBtn = document.getElementById('nav-mobile-book-btn');
+    if (mobileBookBtn) {
+      mobileBookBtn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
           navMenu.classList.remove('open');
         }
       });

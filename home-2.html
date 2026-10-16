@@ -63,6 +63,11 @@
           <li class="nav-item">
             <a href="contact.html" class="nav-link" id="nav-contact">Contact Us</a>
           </li>
+          <li class="nav-item nav-item-cta">
+            <a href="book-service.html" class="btn btn-primary nav-menu-book-btn" id="nav-mobile-book-btn">
+              <span>Book a Service</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -98,9 +103,11 @@
 
         <!-- Mobile Menu Toggle Button -->
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
@@ -390,7 +397,7 @@
               <h3 class="marquee-card-title">EPS Steering Calibration</h3>
               <p class="marquee-card-desc">Electronic torque sensor zero-point learning, steering angle sensor re-initialization, and motor drive testing.</p>
               <div class="marquee-card-footer">
-                <span>Angle Tolerance: 0.1Â°</span>
+                <span>Angle Tolerance: 0.1&deg;</span>
                 <span>OEM Spec &rarr;</span>
               </div>
             </div>
@@ -407,7 +414,7 @@
               <p class="marquee-card-desc">Installation and maintenance of ultracapacitor start-assist banks for cold-climate commercial operations.</p>
               <div class="marquee-card-footer">
                 <span>Cranking: 2000A</span>
-                <span>-40Â°C Verified &rarr;</span>
+                <span>-40&deg;C Verified &rarr;</span>
               </div>
             </div>
           </div>
@@ -496,8 +503,8 @@
               <h3 class="tool-card-title">1587 Insulation Multimeter</h3>
               <p class="tool-card-desc">1,000V rated dielectric breakdown sweeps and insulation resistance testing for hybrid &amp; 800V EV busbars.</p>
               <div class="tool-card-footer">
-                <span class="tool-spec-pill">âš¡ CAT IV 600V</span>
-                <span class="tool-tested-tag">Calibrated âœ“</span>
+                <span class="tool-spec-pill">&#9889; CAT IV 600V</span>
+                <span class="tool-tested-tag">Calibrated &check;</span>
               </div>
             </div>
           </div>
@@ -517,8 +524,8 @@
               <h3 class="tool-card-title">KTS 590 / ESI[tronic] 2.0</h3>
               <p class="tool-card-desc">Dual-channel DoIP diagnostic gateway supporting CAN-FD, Automotive Ethernet OBD, and OEM ECU micro-flashing.</p>
               <div class="tool-card-footer">
-                <span class="tool-spec-pill">ðŸ“¡ DoIP / J2534</span>
-                <span class="tool-tested-tag">OEM Flashing âœ“</span>
+                <span class="tool-spec-pill">&#128225; DoIP / J2534</span>
+                <span class="tool-tested-tag">OEM Flashing &check;</span>
               </div>
             </div>
           </div>
@@ -538,8 +545,8 @@
               <h3 class="tool-card-title">ZEUS+ &amp; PicoScope 4425A</h3>
               <p class="tool-card-desc">High-speed waveform sampler capturing transient microscopic voltage spikes and sensor dropouts down to 10ns.</p>
               <div class="tool-card-footer">
-                <span class="tool-spec-pill">ðŸ”¬ 4-Ch 400MS/s</span>
-                <span class="tool-tested-tag">10ns Glitch âœ“</span>
+                <span class="tool-spec-pill">&#128300; 4-Ch 400MS/s</span>
+                <span class="tool-tested-tag">10ns Glitch &check;</span>
               </div>
             </div>
           </div>
@@ -559,8 +566,8 @@
               <h3 class="tool-card-title">MDX-7000 Conductance Lab</h3>
               <p class="tool-card-desc">Dynamic conductance load tester computing internal plate sulfation and cold-cranking reserve under heavy transport duty.</p>
               <div class="tool-card-footer">
-                <span class="tool-spec-pill">ðŸ”‹ AGM / Lithium</span>
-                <span class="tool-tested-tag">2,500 CCA âœ“</span>
+                <span class="tool-spec-pill">&#128267; AGM / Lithium</span>
+                <span class="tool-tested-tag">2,500 CCA &check;</span>
               </div>
             </div>
           </div>
@@ -799,7 +806,7 @@
           <div class="process-card">
             <div class="process-step-num">02</div>
             <h3 class="process-card-title">Radiometric Thermal Scan</h3>
-            <p class="process-card-desc">FLIR calibrated infrared thermography reveals microscopic 0.05Â°C resistance hot spots in fuse arrays and relay blocks.</p>
+            <p class="process-card-desc">FLIR calibrated infrared thermography reveals microscopic 0.05&deg;C resistance hot spots in fuse arrays and relay blocks.</p>
             <div class="process-card-meta">
               <span>Stage Target: Circuit Isolation</span>
             </div>
@@ -857,7 +864,7 @@
           <!-- Tier 1: Fleet Transit Essential -->
           <div class="sla-tier-card">
             <div class="sla-card-header">
-              <span class="sla-tier-tag">LIGHT FLEET &bull; 5â€“15 VEHICLES</span>
+              <span class="sla-tier-tag">LIGHT FLEET &bull; 5&ndash;15 VEHICLES</span>
               <h3 class="sla-tier-title">Fleet Transit Essential</h3>
               <p class="sla-tier-desc">Designed for urban delivery shuttles, couriers, and trades looking to prevent battery drains and alternator breakdowns.</p>
             </div>
@@ -873,23 +880,33 @@
 
             <ul class="sla-features-list">
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>4-Hour Turnaround:</strong> Priority daytime diagnostic intake.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>Monthly Conductance Audits:</strong> Comprehensive battery &amp; alternator health logs.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>Parasitic Sleep Drain Sweep:</strong> Thermal imaging isolation within 48 hours.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>OEM Telematics Registration:</strong> Factory battery registration &amp; ECU clear.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>Direct WhatsApp Coordinator:</strong> 1-on-1 contact with workshop foreperson.</span>
               </li>
             </ul>
@@ -904,11 +921,14 @@
           <!-- Tier 2: Mission-Critical Haul & Cold-Chain (Featured) -->
           <div class="sla-tier-card featured-sla-card">
             <div class="sla-popular-badge">
-              <span>â˜… MOST POPULAR COMMERCIAL FLEET CHOICE</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -1px; margin-right: 3px;" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span>MOST POPULAR COMMERCIAL FLEET CHOICE</span>
             </div>
 
             <div class="sla-card-header">
-              <span class="sla-tier-tag gold">HEAVY HAUL &bull; 15â€“40 VEHICLES</span>
+              <span class="sla-tier-tag gold">HEAVY HAUL &bull; 15&ndash;40 VEHICLES</span>
               <h3 class="sla-tier-title">Mission-Critical Logistics</h3>
               <p class="sla-tier-desc">Built for refrigerated freight, emergency fleets, and distribution logistics where downtime directly impacts cargo and revenue.</p>
             </div>
@@ -924,23 +944,33 @@
 
             <ul class="sla-features-list">
               <li>
-                <span class="sla-check-icon gold">âœ“</span>
+                <span class="sla-check-icon gold">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>60-Minute Bay Dispatch:</strong> Guaranteed bay clearance on vehicle arrival.</span>
               </li>
               <li>
-                <span class="sla-check-icon gold">âœ“</span>
+                <span class="sla-check-icon gold">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>24/7 Mobile Roadside Support:</strong> Rapid heavy electrical mobile response truck.</span>
               </li>
               <li>
-                <span class="sla-check-icon gold">âœ“</span>
+                <span class="sla-check-icon gold">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>28V 300A Heavy Alternators:</strong> Component diode rebuilds with heavy-duty heatsinks.</span>
               </li>
               <li>
-                <span class="sla-check-icon gold">âœ“</span>
+                <span class="sla-check-icon gold">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>Component Micro-Repair:</strong> Fix PCB sensors down to diode level, preserving OEM coding.</span>
               </li>
               <li>
-                <span class="sla-check-icon gold">âœ“</span>
+                <span class="sla-check-icon gold">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>Standby Spare Units:</strong> Free access to loaner alternators and AGM buffer batteries.</span>
               </li>
             </ul>
@@ -971,23 +1001,33 @@
 
             <ul class="sla-features-list">
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>800V Battery Balancing:</strong> Multi-cell pack isolation sweeps &amp; contactor tests.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>1,000V Megohmmeter Certified:</strong> Certified EV high-voltage isolation sign-offs.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>DC-DC Inverter Diagnostics:</strong> Advanced oscilloscope signal decoding &amp; ripple checks.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>CAN-FD Bus Error Tracing:</strong> Zero-error network packet analysis &amp; harness repair.</span>
               </li>
               <li>
-                <span class="sla-check-icon">âœ“</span>
+                <span class="sla-check-icon">
+                  <svg viewBox="0 0 12 12" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 6 4.8 8.5 9.5 3.5"/></svg>
+                </span>
                 <span><strong>36-Month Engineering Warranty:</strong> Longest commercial high-voltage repair warranty.</span>
               </li>
             </ul>
@@ -1002,7 +1042,7 @@
 
         <!-- Custom Enterprise Fleet Banner -->
         <div class="sla-enterprise-banner">
-          <div class="enterprise-icon-badge">âš¡</div>
+          <div class="enterprise-icon-badge">&#9889;</div>
           <div class="enterprise-info">
             <h4 class="enterprise-title">Manage a Fleet of 50+ Vehicles or Municipal Transport?</h4>
             <p class="enterprise-desc">We structure customized bespoke SLAs with dedicated on-site diagnostic technicians, inventory consignment, and volume-discounted component rebuilds.</p>
@@ -1332,7 +1372,7 @@
               </svg>
               <div class="contact-row-content">
                 <span class="contact-row-title">Timing:</span>
-                <span class="contact-row-val">Daily: 07:30 AM â€“ 06:30 PM</span>
+                <span class="contact-row-val">Daily: 07:30 AM &ndash; 06:30 PM</span>
               </div>
             </div>
 
@@ -1438,7 +1478,7 @@
           <div class="form-field">
             <label for="login-password" class="form-label">Password</label>
             <div class="password-input-wrapper">
-              <input type="password" id="login-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
               <button type="button" class="eye-toggle-btn" id="toggle-password-visibility" aria-label="Toggle password visibility">
                 <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -1473,7 +1513,7 @@
         <button class="modal-close-btn" id="close-general-modal">&times;</button>
       </div>
       <div class="modal-content-body text-center">
-        <div class="modal-icon-badge" id="general-modal-icon">âš¡</div>
+        <div class="modal-icon-badge" id="general-modal-icon">&#9889;</div>
         <h4 id="general-modal-heading" class="general-modal-h">Coming Soon</h4>
         <p id="general-modal-message" class="general-modal-p">This module is actively synchronizing with our workshop telemetry servers.</p>
         <button class="btn btn-primary" id="general-modal-ok-btn">Understood</button>
@@ -1483,7 +1523,7 @@
 
   <!-- NOTIFICATION TOAST -->
   <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
-    <div class="toast-icon">âœ“</div>
+    <div class="toast-icon">&check;</div>
     <div class="toast-message" id="toast-message">Action successful!</div>
   </div>
 

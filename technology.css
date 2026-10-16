@@ -60,8 +60,24 @@
 }
 
 [data-theme="light"] .tech-hero-overlay {
-  background: linear-gradient(180deg, rgba(246, 243, 234, 0.96) 0%, rgba(246, 243, 234, 0.90) 28%, rgba(246, 243, 234, 0.82) 55%, rgba(246, 243, 234, 0.92) 85%, #F6F3EA 100%),
-              radial-gradient(circle at 50% 40%, rgba(246, 243, 234, 0.75) 0%, rgba(246, 243, 234, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(246, 243, 234, 0.85) 0%, rgba(246, 243, 234, 0.62) 28%, rgba(246, 243, 234, 0.38) 55%, rgba(246, 243, 234, 0.72) 85%, #F6F3EA 100%),
+              radial-gradient(circle at 50% 45%, rgba(246, 243, 234, 0.35) 0%, rgba(246, 243, 234, 0.88) 100%);
+}
+
+/* Millimeter Laboratory Telemetry Blueprint Grid */
+.tech-hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(200, 164, 93, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(200, 164, 93, 0.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="light"] .tech-hero-grid-pattern {
+  background-image: linear-gradient(rgba(82, 108, 83, 0.07) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(82, 108, 83, 0.07) 1px, transparent 1px);
 }
 
 .tech-hero-ambient-glow {
@@ -78,7 +94,7 @@
 }
 
 [data-theme="light"] .tech-hero-ambient-glow {
-  background: radial-gradient(circle, rgba(200, 164, 93, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200, 164, 93, 0.22) 0%, transparent 70%);
 }
 
 .tech-hero-container {
@@ -101,12 +117,17 @@
   align-items: center;
   text-align: center;
   max-width: 880px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .tech-hero-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
   gap: 10px;
   background-color: rgba(23, 35, 29, 0.78);
   border: 1px solid rgba(200, 164, 93, 0.38);
@@ -116,6 +137,17 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.tech-hero-badge .pulse-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 10px var(--color-secondary);
+  flex-shrink: 0;
 }
 
 [data-theme="light"] .tech-hero-badge {
@@ -130,6 +162,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #C8A45D;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 [data-theme="light"] .tech-hero-badge .badge-text {
@@ -163,7 +197,11 @@
 }
 
 [data-theme="light"] .highlight-gold {
-  color: #7A5514;
+  display: inline-block;
+  background: linear-gradient(135deg, #17231D 0%, #8E6D2B 35%, #B8934A 70%, #526C53 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(200, 164, 93, 0.25));
 }
 
 .highlight-green {
@@ -179,7 +217,11 @@
   line-height: 1.62;
   color: #B9C2B9;
   max-width: 740px;
+  width: 100%;
+  box-sizing: border-box;
   margin-bottom: 22px;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 [data-theme="light"] .tech-hero-paratext {
@@ -215,6 +257,19 @@
   transform: translateY(-2px);
 }
 
+[data-theme="light"] .tech-hero-actions .btn-primary {
+  background-color: #526C53;
+  color: #FFFFFF;
+  border-color: #526C53;
+  box-shadow: 0 8px 24px rgba(82, 108, 83, 0.28);
+}
+
+[data-theme="light"] .tech-hero-actions .btn-primary:hover {
+  background-color: #435944;
+  border-color: #435944;
+  box-shadow: 0 12px 30px rgba(82, 108, 83, 0.38);
+}
+
 .tech-hero-actions .btn-secondary {
   background-color: rgba(23, 35, 29, 0.72);
   backdrop-filter: blur(12px);
@@ -228,10 +283,10 @@
 }
 
 [data-theme="light"] .tech-hero-actions .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.88);
-  border-color: rgba(200, 164, 93, 0.45);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(200, 164, 93, 0.45);
   color: #17231D;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(23, 35, 29, 0.08);
 }
 
 .tech-hero-actions .btn-secondary:hover {
@@ -239,6 +294,12 @@
   border-color: #C8A45D;
   color: #C8A45D;
   transform: translateY(-2px);
+}
+
+[data-theme="light"] .tech-hero-actions .btn-secondary:hover {
+  background-color: rgba(82, 108, 83, 0.08);
+  border-color: #526C53;
+  color: #526C53;
 }
 
 /* Central Telemetry Proscenium (Stage & Flanking HUD Nodes) */
@@ -271,9 +332,9 @@
 }
 
 [data-theme="light"] .tech-hud-node {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.96);
   border-color: rgba(200, 164, 93, 0.42);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 36px rgba(23, 35, 29, 0.08), 0 0 20px rgba(200, 164, 93, 0.12);
 }
 
 .tech-hud-node:hover {
@@ -283,7 +344,8 @@
 }
 
 [data-theme="light"] .tech-hud-node:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 0 20px rgba(200, 164, 93, 0.2);
+  border-color: rgba(200, 164, 93, 0.75);
+  box-shadow: 0 20px 48px rgba(23, 35, 29, 0.14), 0 0 28px rgba(200, 164, 93, 0.22);
 }
 
 .hud-node-head {
@@ -322,7 +384,7 @@
 }
 
 [data-theme="light"] .hud-code {
-  color: #8A641B;
+  color: #8E6D2B;
 }
 
 [dir="rtl"] .hud-code {
@@ -345,8 +407,9 @@
 }
 
 [data-theme="light"] .hud-pill.pass {
-  color: #1b8a4b;
-  background: rgba(46, 204, 113, 0.18);
+  color: #167a3f;
+  background: rgba(46, 204, 113, 0.16);
+  border-color: rgba(46, 204, 113, 0.4);
 }
 
 .hud-pill.gold {
@@ -356,7 +419,9 @@
 }
 
 [data-theme="light"] .hud-pill.gold {
-  color: #8A641B;
+  color: #8E6D2B;
+  background: rgba(200, 164, 93, 0.18);
+  border-color: rgba(200, 164, 93, 0.45);
 }
 
 .hud-title {
@@ -367,7 +432,8 @@
 }
 
 [data-theme="light"] .hud-title {
-  color: #35463A;
+  color: #55665B;
+  font-weight: 700;
 }
 
 .hud-data {
@@ -381,6 +447,19 @@
 
 [data-theme="light"] .hud-data {
   color: #17231D;
+  font-weight: 800;
+}
+
+[data-theme="light"] .hud-data.highlight-gold {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: #9A7220 !important;
+  font-weight: 800;
+}
+
+[data-theme="light"] .hud-data.highlight-green {
+  color: #178243 !important;
+  font-weight: 800;
 }
 
 .hud-sub {
@@ -390,7 +469,7 @@
 }
 
 [data-theme="light"] .hud-sub {
-  color: #4A5B4F;
+  color: #718076;
 }
 
 /* Center Spacer Reticle Badge */
@@ -462,9 +541,9 @@
 }
 
 [data-theme="light"] .tech-hardware-dock {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(200, 164, 93, 0.4);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(200, 164, 93, 0.42);
+  box-shadow: 0 16px 36px rgba(23, 35, 29, 0.08);
 }
 
 .dock-header-label {
@@ -479,7 +558,7 @@
 }
 
 [data-theme="light"] .dock-header-label {
-  color: #8A641B;
+  color: #8E6D2B;
 }
 
 .dock-pulse {
@@ -515,7 +594,7 @@
 }
 
 [data-theme="light"] .dock-num {
-  color: #8A641B;
+  color: #8E6D2B;
   background: rgba(200, 164, 93, 0.18);
 }
 
@@ -538,7 +617,7 @@
 }
 
 [data-theme="light"] .dock-desc {
-  color: #4A5B4F;
+  color: #55665B;
 }
 
 .dock-sep {
@@ -547,10 +626,8 @@
   background-color: rgba(200, 164, 93, 0.22);
 }
 
-.dock-sep {
-  width: 1px;
-  height: 22px;
-  background-color: rgba(200, 164, 93, 0.22);
+[data-theme="light"] .dock-sep {
+  background-color: rgba(200, 164, 93, 0.3);
 }
 
 
@@ -1819,7 +1896,7 @@
   }
 
   [data-theme="light"] .tech-hero-overlay {
-    background: linear-gradient(180deg, #F6F3EA 0%, rgba(246, 243, 234, 0.97) 55%, rgba(246, 243, 234, 0.90) 80%, #F6F3EA 100%);
+    background: linear-gradient(180deg, rgba(246, 243, 234, 0.85) 0%, rgba(246, 243, 234, 0.62) 40%, rgba(246, 243, 234, 0.72) 80%, #F6F3EA 100%);
   }
 
   .tech-telemetry-stage {
@@ -1919,5 +1996,107 @@
 
   .tech-cta-card {
     padding: 36px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-hero-badge {
+    padding: 5px 12px;
+    gap: 7px;
+    margin-bottom: 12px;
+    max-width: 100%;
+  }
+
+  .tech-hero-badge .badge-text {
+    font-size: 0.58rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .tech-hero-badge .pulse-indicator {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+  }
+
+  .tech-hero-headline {
+    font-size: clamp(1.65rem, 5.5vw, 2.1rem);
+    word-break: break-word;
+  }
+
+  .tech-hero-paratext {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    word-break: normal;
+    overflow-wrap: break-word;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tech-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .tech-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+
+  .dock-items-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .cinematic-card {
+    padding: 24px 16px;
+  }
+
+  .cinematic-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .lab-stat-box {
+    padding: 16px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .tech-hero-badge {
+    padding: 4px 8px;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .tech-hero-badge .badge-text {
+    font-size: 0.49rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .tech-hero-badge .pulse-indicator {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+  }
+
+  .tech-hero-headline {
+    font-size: 1.5rem;
+    line-height: 1.18;
+  }
+
+  .tech-hero-paratext {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .tech-hero-actions .btn {
+    padding: 11px 16px;
+    font-size: 0.84rem;
   }
 }

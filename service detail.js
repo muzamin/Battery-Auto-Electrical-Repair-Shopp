@@ -34,7 +34,7 @@ const SERVICES_DATA = {
       stats: [
         { label: 'CAN-High Signal', val: '3.52 V Normal' },
         { label: 'CAN-Low Signal', val: '1.48 V Normal' },
-        { label: 'Termination Resistance', val: '60.2 Î© Dual Split' }
+        { label: 'Termination Resistance', val: '60.2 &Omega; Dual Split' }
       ]
     },
     context: {
@@ -144,7 +144,7 @@ const SERVICES_DATA = {
       stats: [
         { label: 'Terminal Resting Voltage', val: '12.82 V 100% SOC' },
         { label: 'Measured CCA / Rated', val: '890 CCA / 850 CCA' },
-        { label: 'Internal Resistance', val: '3.12 mÎ© Prime Health' }
+        { label: 'Internal Resistance', val: '3.12 m&Omega; Prime Health' }
       ]
     },
     context: {
@@ -362,9 +362,9 @@ const SERVICES_DATA = {
       title: 'CIRCUIT CONTINUITY RECORD',
       tag: 'MIL-SPEC VERIFIED',
       stats: [
-        { label: 'Wire Loop Resistance', val: '0.04 Î© End-to-End' },
-        { label: 'Insulation Resistance', val: '> 500 MÎ© @ 500V' },
-        { label: 'Thermal Sleeve Rating', val: '-55Â°C to +150Â°C' }
+        { label: 'Wire Loop Resistance', val: '0.04 &Omega; End-to-End' },
+        { label: 'Insulation Resistance', val: '> 500 M&Omega; @ 500V' },
+        { label: 'Thermal Sleeve Rating', val: '-55&deg;C to +150&deg;C' }
       ]
     },
     context: {
@@ -473,8 +473,8 @@ const SERVICES_DATA = {
       tag: '1,000V TEST CERTIFIED',
       stats: [
         { label: 'HV Bus Voltage', val: '388.4 V DC Verified' },
-        { label: 'Chassis Isolation Resistance', val: '820 MÎ© (>500MÎ© Pass)' },
-        { label: 'HVIL Interlock Loop', val: '0.08 Î© Continuous' }
+        { label: 'Chassis Isolation Resistance', val: '820 M&Omega; (&gt;500M&Omega; Pass)' },
+        { label: 'HVIL Interlock Loop', val: '0.08 &Omega; Continuous' }
       ]
     },
     context: {
@@ -876,7 +876,7 @@ function renderServiceDetail(serviceId) {
     const statLabels = [
       { lbl1: 'Tolerance', val1: '0.01% Error', lbl2: 'Standard', val2: 'OEM Spec' },
       { lbl1: 'Hardware', val1: 'Heavy-Duty', lbl2: 'Rating', val2: 'Industrial' },
-      { lbl1: 'Wave Trace', val1: 'PicoScopeÂ®', lbl2: 'Grounding', val2: 'Zero Drop' },
+      { lbl1: 'Wave Trace', val1: 'PicoScope&reg;', lbl2: 'Grounding', val2: 'Zero Drop' },
       { lbl1: 'Warranty', val1: 'Nationwide', lbl2: 'Coverage', val2: '100% Free' }
     ];
     const stat = statLabels[idx % statLabels.length];
@@ -1633,7 +1633,7 @@ function initOscilloscope(service) {
     faultBtn.onclick = () => {
       isGlitchActive = !isGlitchActive;
       faultBtn.classList.toggle('active', isGlitchActive);
-      faultBtn.textContent = isGlitchActive ? 'âš  Anomaly Injected' : 'âš¡ Inject Signal Glitch';
+      faultBtn.textContent = isGlitchActive ? '⚠ Anomaly Injected' : '⚡ Inject Signal Glitch';
 
       if (readoutHealth) {
         if (isGlitchActive) {
@@ -1787,15 +1787,15 @@ const OEM_PROFILES = {
   'BMW': {
     tool: 'BMW ISTA-D/P & Rheingold OEM Online',
     bus: 'FlexRay, CAN-FD, UDS over DoIP Ethernet',
-    voltage: '13.8V â€“ 14.8V Intelligent Alternator BSD',
-    battery: 'AGM 92Ahâ€“105Ah with IBS Battery Register',
+    voltage: '13.8V &ndash; 14.8V Intelligent Alternator BSD',
+    battery: 'AGM 92Ah &ndash; 105Ah with IBS Battery Register',
     turnaround: 'Same-Day (2.5 Hrs Diagnostics)',
     coverage: '100% Factory Dealership Parity'
   },
   'Mercedes-Benz': {
     tool: 'Mercedes Xentry Connect C6 & DTS Monaco',
     bus: 'CAN-C, CAN-B, LIN, MOST Optical Audio Bus',
-    voltage: '14.0V â€“ 14.7V LIN Alternator Voltage Regulation',
+    voltage: '14.0V &ndash; 14.7V LIN Alternator Voltage Regulation',
     battery: 'Dual Battery Architecture (Main AGM + Aux Capacitor)',
     turnaround: 'Same-Day (2.0 Hrs Complete Scan)',
     coverage: 'Full SCN Variant Online Coding'
@@ -1819,7 +1819,7 @@ const OEM_PROFILES = {
   'Tesla / EV': {
     tool: 'Tesla Toolbox 3 & High-Voltage Megohmmeter',
     bus: 'Vehicle CAN, Chassis CAN, High-Voltage HVIL',
-    voltage: '400V â€“ 800V DC Traction Pack + 16V Li-Ion Low-Voltage',
+    voltage: '400V &ndash; 800V DC Traction Pack + 16V Li-Ion Low-Voltage',
     battery: 'Modular High-Voltage Pack & BMS Thermals',
     turnaround: 'Priority EV Diagnostic Bay',
     coverage: 'Master Certified High-Voltage Lab'
@@ -2176,11 +2176,20 @@ function initMobileNavigation() {
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           navMenu.classList.remove('open');
         }
       });
     });
+
+    const mobileBookBtn = document.getElementById('nav-mobile-book-btn');
+    if (mobileBookBtn) {
+      mobileBookBtn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          navMenu.classList.remove('open');
+        }
+      });
+    }
   }
 }
 
@@ -2291,7 +2300,7 @@ function initToast() {
       }, 3500);
     }
   };
- }
+}
 
 /* ==========================================================================
    Smooth Scrolling & Active Navigation

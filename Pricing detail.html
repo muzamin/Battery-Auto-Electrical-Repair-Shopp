@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Package Specifications &amp; Pricing Details | VoltEdge Auto Electrical</title>
+  <title>Package Specifications &amp; Pricing Details &bull; VoltEdge Auto Electrical</title>
   <meta name="description" content="In-depth technical specifications, itemized cost breakdown, lab telemetry, and warranty details for VoltEdge auto electrical service packages.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/images/logo_icon.png">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="Pricing detail.css">
+  <link rel="stylesheet" href="pricing-detail.css">
 </head>
 <body>
-  <!-- HEADER & NAVIGATION (Exact Same Design as Home 1) -->
+  <!-- HEADER &bull; NAVIGATION (Exact Same Design as Home 1) -->
   <header class="site-header" id="site-header">
     <div class="header-container">
-      <!-- Left: Brand Logo & Name -->
-      <a href="index.html" class="brand-logo" id="brand-logo" aria-label="VOLTERRA Battery & Auto Electrical">
+      <!-- Left: Brand Logo &bull; Name -->
+      <a href="index.html" class="brand-logo" id="brand-logo" aria-label="VOLTERRA Battery &bull; Auto Electrical">
         <span class="logo-icon-wrap">
           <img src="assets/images/logo_transparent.png" alt="VOLTERRA Luxury Auto Electrical" class="brand-logo-img">
         </span>
@@ -63,10 +63,15 @@
           <li class="nav-item">
             <a href="contact.html" class="nav-link" id="nav-contact">Contact Us</a>
           </li>
+          <li class="nav-item nav-item-cta">
+            <a href="book-service.html" class="btn btn-primary nav-menu-book-btn" id="nav-mobile-book-btn">
+              <span>Book a Service</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <!-- Right: Utility Controls & Primary CTA -->
+      <!-- Right: Utility Controls &bull; Primary CTA -->
       <div class="header-actions">
         <!-- Theme Toggle -->
         <button class="icon-toggle-btn" id="theme-toggle" aria-label="Toggle Dark and Light Mode" title="Toggle Dark/Light Mode">
@@ -98,9 +103,11 @@
 
         <!-- Mobile Menu Toggle Button -->
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
-          <span class="menu-bar"></span>
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
@@ -131,11 +138,11 @@
     </div>
   </main>
 
-  <!-- FOOTER (Exact Same Design & Sizing as Home 2) -->
+  <!-- FOOTER (Exact Same Design &bull; Sizing as Home 2) -->
   <footer class="site-footer" id="site-footer">
     <div class="container">
       <div class="footer-grid-4">
-        <!-- Column 1: Brand Info & Socials -->
+        <!-- Column 1: Brand Info &bull; Socials -->
         <div class="footer-column footer-brand-column">
           <div class="brand-logo footer-logo">
             <span class="logo-icon-wrap">
@@ -200,7 +207,7 @@
           </ul>
         </div>
 
-        <!-- Column 4: Contact & Support (Matching Exact Format) -->
+        <!-- Column 4: Contact &bull; Support (Matching Exact Format) -->
         <div class="footer-column footer-contact-column">
           <h4 class="footer-heading">Contact &amp; Support</h4>
           <div class="footer-contact-list">
@@ -211,7 +218,7 @@
               </svg>
               <div class="contact-row-content">
                 <span class="contact-row-title">Timing:</span>
-                <span class="contact-row-val">Daily: 07:30 AM â€“ 06:30 PM</span>
+                <span class="contact-row-val">Daily: 07:30 AM &bull; 06:30 PM</span>
               </div>
             </div>
 
@@ -344,7 +351,7 @@
           <div class="form-field">
             <label for="login-password" class="form-label">Password</label>
             <div class="password-input-wrapper">
-              <input type="password" id="login-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
               <button type="button" class="eye-toggle-btn" id="toggle-password-visibility" aria-label="Toggle password visibility">
                 <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -363,11 +370,11 @@
 
   <!-- NOTIFICATION TOAST -->
   <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
-    <div class="toast-icon">âœ“</div>
+    <div class="toast-icon">&check;</div>
     <div class="toast-message" id="toast-message">Action successful!</div>
   </div>
 
-  <script src="Pricing detail.js"></script>
+  <script src="pricing-detail.js"></script>
   <script src="booking-modal.js"></script>
 </body>
 </html>

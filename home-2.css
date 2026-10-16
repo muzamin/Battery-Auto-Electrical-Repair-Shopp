@@ -241,6 +241,7 @@
 .hero2-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background-color: rgba(23, 35, 29, 0.78);
   border: 1px solid rgba(200, 164, 93, 0.38);
@@ -250,6 +251,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 [data-theme="light"] .hero2-badge {
@@ -261,6 +264,7 @@
 .green-pulse {
   background-color: var(--color-success);
   box-shadow: 0 0 8px var(--color-success);
+  flex-shrink: 0;
 }
 
 .hero2-badge .badge-text {
@@ -269,6 +273,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #C8A45D;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 [data-theme="light"] .hero2-badge .badge-text {
@@ -2138,6 +2144,56 @@
   .brand-logos-row {
     grid-template-columns: 1fr;
   }
+
+  .hero2-headline {
+    font-size: clamp(1.7rem, 5.8vw, 2.2rem);
+    word-break: break-word;
+  }
+
+  .hero2-badge {
+    max-width: 100%;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 5px 12px;
+    gap: 7px;
+  }
+
+  .hero2-badge .badge-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .hero2-badge .pulse-indicator {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+  }
+
+  .sentry-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 16px;
+    padding: 8px 14px;
+  }
+
+  .scope-mode-tabs {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .scope-tab-btn {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .sla-card-home2 {
+    padding: 20px 16px;
+  }
 }
 
 /* ==========================================================================
@@ -2868,6 +2924,17 @@
   border-radius: 9999px;
   white-space: nowrap;
   box-shadow: 0 3px 10px rgba(var(--color-secondary-rgb), 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sla-popular-badge svg {
+  width: 9px;
+  height: 9px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .sla-card-header {
@@ -2995,6 +3062,13 @@
   margin-top: 1px;
 }
 
+.sla-check-icon svg {
+  width: 8px;
+  height: 8px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
 .sla-check-icon.gold {
   background: rgba(var(--color-secondary-rgb), 0.18);
   color: var(--color-secondary);
@@ -3108,6 +3182,113 @@
   .scope-tab-btn {
     flex: 1;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .telemetry-console-card {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .console-top-bar {
+    padding: 8px 10px;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .console-status-group {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .console-mode-label {
+    white-space: normal;
+    font-size: 0.63rem;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .scope-mode-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    box-sizing: border-box;
+  }
+
+  .scope-tab-btn {
+    width: 100%;
+    font-size: 0.68rem;
+    padding: 6px 10px;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .scope-screen-viewport {
+    padding: 10px 10px 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .scope-screen-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .scope-screen-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .scope-screen-actions {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+  }
+
+  .scope-action-btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    padding: 6px 8px;
+    font-size: 0.64rem;
+    box-sizing: border-box;
+  }
+
+  .telemetry-sidebar-panel {
+    padding: 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero2-badge {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .hero2-badge .badge-text {
+    font-size: 0.52rem;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+  }
+
+  .hero2-badge .pulse-indicator {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
   }
 }
 
