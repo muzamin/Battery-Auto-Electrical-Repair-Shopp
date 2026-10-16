@@ -1,0 +1,24 @@
+# Netlify redirects and rewrites for Auto Electrical Workshop
+# Handles URLs with spaces transparently without 404s
+/Home%202.html            /home-2.html           200
+/Home\ 2.html             /home-2.html           200
+/Pricing%20detail.html    /pricing-detail.html   200
+/Pricing\ detail.html     /pricing-detail.html   200
+/service%20detail.html    /service-detail.html   200
+/service\ detail.html     /service-detail.html   200
+/book%20a%20service.html  /book-service.html     200
+/book\ a\ service.html    /book-service.html     200
+
+# Pretty URL mappings
+/home-2                   /home-2.html           200
+/about                    /About.html            200
+/service                  /service.html          200
+/services                 /service.html          200
+/pricing                  /pricing.html          200
+/technology               /technology.html       200
+/tech                     /technology.html       200
+/contact                  /contact.html          200
+/book                     /book-service.html     200
+/book-service             /book-service.html     200
+/service-detail           /service-detail.html   200
+/pricing-detail           /pricing-detail.html   200
